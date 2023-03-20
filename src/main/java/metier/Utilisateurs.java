@@ -5,7 +5,7 @@ public class Utilisateurs {
 	public int id;
 	public String sexe;
 	public String nom;
-	public String prenom;//xiezhibo
+	public String prenom;//xiezh
 	public String dateNaissance;
 	public String mail;
 	public String tel;
