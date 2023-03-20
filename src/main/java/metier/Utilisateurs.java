@@ -10,7 +10,6 @@ public class Utilisateurs {
 	public String mail;
 	public String tel;
 	public String mailSupplement;
-	public int i;
 	
 	public Utilisateurs() {
 		super();
