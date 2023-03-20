@@ -5,11 +5,12 @@ public class Utilisateurs {
 	public int id;
 	public String sexe;
 	public String nom;
-	public String prenom;//xiezhb
+	public String prenom;//xiezhbo
 	public String dateNaissance;
 	public String mail;
 	public String tel;
 	public String mailSupplement;
+	
 	
 	public Utilisateurs() {
 		super();
