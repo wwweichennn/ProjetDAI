@@ -5,12 +5,12 @@ public class Utilisateurs {
 	public int id;
 	public String sexe;
 	public String nom;
-	public String prenom;
+	public String prenom;//xiezhibo
 	public String dateNaissance;
 	public String mail;
 	public String tel;
 	public String mailSupplement;
-	
+	public String bureau;
 	
 	
 	
