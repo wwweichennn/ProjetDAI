@@ -4,14 +4,17 @@ public class Utilisateurs {
 	
 	public int id;
 	public String sexe;
-	public String nom;//11111
+<<<<<<< HEAD
+	public String nom;//111112222
 	public String prenom;
+=======
+	public String nom;
+	public String prenom;//xiezhbo
+>>>>>>> branch 'master' of https://github.com/wwweichennn/ProjetDAI.git
 	public String dateNaissance;
 	public String mail;
 	public String tel;
 	public String mailSupplement;
-	
-	
 	
 	
 	public Utilisateurs() {
