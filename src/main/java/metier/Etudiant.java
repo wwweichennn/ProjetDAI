@@ -3,6 +3,12 @@ package metier;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 @Entity
 @DiscriminatorValue("Etudiant")
 

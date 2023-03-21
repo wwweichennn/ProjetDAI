@@ -4,6 +4,13 @@ import java.io.File;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity(name = "Justificatifs")
+
 public class Justificatif {
 	private int idJ;
 	private StatutJustificatif statut;
