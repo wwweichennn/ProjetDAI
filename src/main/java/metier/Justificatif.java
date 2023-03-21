@@ -11,6 +11,13 @@ public class Justificatif {
 	private Date dateDebut;
 	private Date dateFin;
 	
+	//relation deposer 
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id")
+    private Etudiant etudiant;
+
+	
 	public Justificatif() {
 		
 	}

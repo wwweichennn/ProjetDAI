@@ -1,14 +1,24 @@
 package metier;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 @Entity
 @DiscriminatorValue("Etudiant")
 
 public class Etudiant extends Utilisateurs{
 
+	//proprietes
+	
 	private Parcours parcour;
 	private Formations formation;
 	
+	//Relation deposer
+
+    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<Justificatif> justificatifs = new HashSet<>();
+	
+	//constructeur
 	public Etudiant(int id, String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
 		String mailSupplement, Parcours parcour, Formations formation) {
 		super(id, sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);
