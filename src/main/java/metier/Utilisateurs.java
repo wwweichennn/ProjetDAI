@@ -1,5 +1,13 @@
 package metier;
 
+import java.util.Objects;
+
+
+@Entity(name="Utilisateurs")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TypeU",discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("Utilisateur")
+
 public class Utilisateurs {
 	
 	public int id;
@@ -82,6 +90,38 @@ public class Utilisateurs {
 	}
 	public void setMailSupplement(String mailSupplement) {
 		this.mailSupplement = mailSupplement;
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(dateNaissance, id, mail, mailSupplement, nom, prenom, sexe, tel);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Utilisateurs other = (Utilisateurs) obj;
+		return Objects.equals(dateNaissance, other.dateNaissance) && id == other.id && Objects.equals(mail, other.mail)
+				&& Objects.equals(mailSupplement, other.mailSupplement) && Objects.equals(nom, other.nom)
+				&& Objects.equals(prenom, other.prenom) && Objects.equals(sexe, other.sexe)
+				&& Objects.equals(tel, other.tel);
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "Utilisateurs [id=" + id + ", sexe=" + sexe + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance="
+				+ dateNaissance + ", mail=" + mail + ", tel=" + tel + ", mailSupplement=" + mailSupplement + "]";
 	}
 	
 	
