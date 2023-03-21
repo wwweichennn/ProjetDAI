@@ -1,19 +1,11 @@
 package metier;
 
 import java.io.File;
-
 import java.util.Date;
 import java.util.Objects;
-import enumtype.StatutJustificatif;
-import javax.persistence.*;
 
 public class Justificatif {
-	
-	//Propriétés
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idJ;
-    
 	private StatutJustificatif statut;
 	private File pdf;
 	private Date dateDebut;

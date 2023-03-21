@@ -3,10 +3,6 @@ package metier;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
-import enumtype.Formations;
-import enumtype.Parcours;
-import javax.persistence.*;
-
 @Entity
 @DiscriminatorValue("Etudiant")
 
@@ -45,14 +41,6 @@ public class Etudiant extends Utilisateurs{
 
 	public void setFormation(Formations formation) {
 		this.formation = formation;
-	}
-
-	public Set<Justificatif> getJustificatifs() {
-		return justificatifs;
-	}
-
-	public void setJustificatifs(Set<Justificatif> justificatifs) {
-		this.justificatifs = justificatifs;
 	}
 
 	@Override
