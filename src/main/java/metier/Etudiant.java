@@ -21,8 +21,6 @@ public class Etudiant extends Utilisateurs{
 	
 	//Relation deposer
 
-    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Justificatif> justificatifs = new HashSet<>();
 	
 	//constructeur
 	public Etudiant(int id, String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,

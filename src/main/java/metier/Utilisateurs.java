@@ -1,12 +1,19 @@
 package metier;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
+import javax.persistence.*;
+
 
 
 @Entity(name="Utilisateurs")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TypeU",discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("Utilisateur")
+
+
 
 public class Utilisateurs {
 	
@@ -19,7 +26,11 @@ public class Utilisateurs {
 	public String tel;
 	public String mailSupplement;
 	
-	
+
+	//relation deposer
+
+	@OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Set<Justificatif> justificatifs = new HashSet<>();
 	
 	
 	public Utilisateurs() {
