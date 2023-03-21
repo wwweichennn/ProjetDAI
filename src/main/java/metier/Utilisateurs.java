@@ -3,6 +3,7 @@ package metier;
 public class Utilisateurs {
 	
 	public int id;
+	public String password;
 	public String sexe;
 	public String nom;
 	public String prenom;
