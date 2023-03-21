@@ -1,4 +1,4 @@
-package metier;
+package enumtype;
 
 public enum StatutJustificatif {
 	Validé,

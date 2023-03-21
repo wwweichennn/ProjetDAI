@@ -2,6 +2,8 @@ package metier;
 
 import java.util.Objects;
 
+import javax.persistence.*;
+
 @Entity
 @DiscriminatorValue("Scolarite")
 
