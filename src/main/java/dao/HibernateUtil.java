@@ -24,22 +24,23 @@ public class HibernateUtil
 
 			/**
 			 * Ajout des classes.
-			 * Pour miage.metier.Employe le fichier ressource hbm.xml
-			 * attaché est miage/metier/Employe.hbm.xml.
+			 * 
+			 * 
 			 */
-			configuration.addClass(metier.users.class);
-			configuration.addClass(metier.Cours.class);
-			configuration.addClass(metier.Enseignant.class);
-			configuration.addClass(metier.Justificatif.class);
-			configuration.addClass(metier.Seance.class);
-			configuration.addClass(metier.Scolarite.class);
-			configuration.addClass(metier.Etudiant.class);
+			configuration.addAnnotatedClass(metier.users.class);
+			configuration.addAnnotatedClass(metier.Cours.class);
+			configuration.addAnnotatedClass(metier.Enseignant.class);
+			configuration.addAnnotatedClass(metier.Justificatif.class);
+			configuration.addAnnotatedClass(metier.Seance.class);
+			configuration.addAnnotatedClass(metier.Scolarite.class);
+			configuration.addAnnotatedClass(metier.Etudiant.class);
+			configuration.addAnnotatedClass(metier.Participer.class);
+			configuration.addAnnotatedClass(metier.ParticiperID.class);
 
 			/**
 			 * Entité.
 			 */
-			//configuration.addAnnotatedClass(miage.metier.Employe.class);
-			
+	
 
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();
             System.out.println("Hibernate serviceRegistry created");

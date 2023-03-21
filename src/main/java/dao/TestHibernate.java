@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import metier.Cours;
+import metier.users;
 
 
 /**
@@ -22,7 +23,8 @@ public class TestHibernate
 	 */
 
 	/*----- Format de date -----*/
-	private static final SimpleDateFormat DF = new SimpleDateFormat("dd-MM-yyyy");
+	private static final SimpleDateFormat DF = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+	private static final SimpleDateFormat DFDATE = new SimpleDateFormat("dd-MM-yyyy");
 
 
 	/**
@@ -67,7 +69,30 @@ public class TestHibernate
 			}
 		}
 
-	
+	public static void createUsers ()
+	{
+	/*----- Ouverture de la session -----*/
+	try (Session session = HibernateUtil.getSessionFactory().getCurrentSession())
+		{
+		/*----- Ouverture d'une transaction -----*/
+		Transaction t = session.beginTransaction();
+
+		users u1=new users("weichen@gmail.com","1234","sun","weichen","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa");
+		users u2=new users("zhibo@gmail.com","1234","xie","zhibo","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa");
+
+
+
+		session.save(u1);
+		session.save(u2);
+
+
+		
+		t.commit();
+		session.close();
+		}
+	}
+
+
 
 
 	/**
@@ -76,7 +101,7 @@ public class TestHibernate
 	public static void main(String[] args) throws ParseException
 		{
 		TestHibernate.createCours();
-
+		TestHibernate.createUsers();
 		}
 
 

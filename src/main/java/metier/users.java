@@ -5,6 +5,7 @@ import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
@@ -25,21 +26,36 @@ public class users {
 	//priorite
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "CodeU")
 	private String identifiant;
+	
+	@Column(name = "CodeU")
 	private String motDePasse;
+	
+	@Column(name = "nom")
 	private String nom;
+	
+	@Column(name = "prenom")
 	private String prenom;
+	
+	@Column(name = "sexe")
 	private String sexe;
+	
+	@Column(name = "dateNaissance")
 	private Date dateNaissance;
+	
+	@Column(name = "mailSupplement")
 	private String mailSupplement;
+	
+	@Column(name = "phooto")
 	private String photo;
 	
 	//Relation effectuer
-	@OneToMany(mappedBy="users",cascade = CascadeType.ALL, fetch= FetchType.LAZY)
+	@OneToMany(mappedBy="users",cascade = CascadeType.ALL, fetch= FetchType.EAGER)
 	private Set<Seance> seances = new HashSet<>(0);
 	
-	@OneToMany(mappedBy="users",cascade = CascadeType.ALL, fetch= FetchType.LAZY)
-	private Set<Justificatif> justificarifs = new HashSet<>(0);
+	@OneToMany(mappedBy="users",cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	private Set<Justificatif> justificatifs = new HashSet<>(0);
 	
 	
 	
