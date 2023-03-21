@@ -1,6 +1,8 @@
 package metier;
 
 import java.util.Objects;
+@Entity
+@DiscriminatorValue("Etudiant")
 
 public class Etudiant extends Utilisateurs{
 

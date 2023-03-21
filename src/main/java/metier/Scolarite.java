@@ -2,6 +2,9 @@ package metier;
 
 import java.util.Objects;
 
+@Entity
+@DiscriminatorValue("Scolarite")
+
 public class Scolarite extends Utilisateurs{
 	
 private String bureauS;

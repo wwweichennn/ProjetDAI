@@ -2,6 +2,12 @@ package metier;
 
 import java.util.Objects;
 
+
+@Entity(name="Utilisateurs")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "TypeU",discriminatorType = DiscriminatorType.STRING)
+@DiscriminatorValue("Utilisateur")
+
 public class Utilisateurs {
 	
 	public int id;
