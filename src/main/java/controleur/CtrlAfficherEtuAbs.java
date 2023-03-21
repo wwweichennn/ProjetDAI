@@ -50,7 +50,7 @@ public class CtrlAfficherEtuAbs extends HttpServlet {
 		try {
 			session.beginTransaction();
 
-			String queryString = "FROM Etudiant WHERE promotion=" + action + " AND nonValide=true";		//Requete pour recupérer les étudiants
+			String queryString = "FROM Etudiant WHERE parcours=" + action + " AND nonValide=true";		//Requete pour recupérer les étudiants
 
 			List<Etudiant> etudiants = session.createQuery(queryString).getResultList();		//recupere le résultat de la requete
 
