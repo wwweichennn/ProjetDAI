@@ -4,6 +4,13 @@ import java.io.File;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity(name = "Justificatifs")
+
 public class Justificatif {
 	private int idJ;
 	private StatutJustificatif statut;
@@ -15,20 +22,23 @@ public class Justificatif {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id")
-    private Etudiant etudiant;
+	
+	
+    private Utilisateurs user;
 
 	
 	public Justificatif() {
 		
 	}
 	
-	public Justificatif(int idJ, File pdf, StatutJustificatif statut, Date dateDebut, Date dateFin) {
+	public Justificatif(int idJ, File pdf, StatutJustificatif statut, Date dateDebut, Date dateFin, Utilisateurs user) {
 		super();
 		this.idJ = idJ;
 		this.pdf = pdf;
 		this.statut=statut;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
+		this.user=user;
 	}
 
 	public int getIdJ() {

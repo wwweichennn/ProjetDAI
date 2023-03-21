@@ -3,6 +3,12 @@ package metier;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 @Entity
 @DiscriminatorValue("Etudiant")
 
@@ -15,8 +21,6 @@ public class Etudiant extends Utilisateurs{
 	
 	//Relation deposer
 
-    @OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private Set<Justificatif> justificatifs = new HashSet<>();
 	
 	//constructeur
 	public Etudiant(int id, String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
