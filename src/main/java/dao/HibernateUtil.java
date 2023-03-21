@@ -27,7 +27,13 @@ public class HibernateUtil
 			 * Pour miage.metier.Employe le fichier ressource hbm.xml
 			 * attaché est miage/metier/Employe.hbm.xml.
 			 */
-//			configuration.addClass(miage.metier.Employe.class);
+			configuration.addClass(metier.users.class);
+			configuration.addClass(metier.Cours.class);
+			configuration.addClass(metier.Enseignant.class);
+			configuration.addClass(metier.Justificatif.class);
+			configuration.addClass(metier.Seance.class);
+			configuration.addClass(metier.Scolarite.class);
+			configuration.addClass(metier.Etudiant.class);
 
 			/**
 			 * Entité.
