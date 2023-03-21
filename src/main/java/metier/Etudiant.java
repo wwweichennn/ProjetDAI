@@ -26,9 +26,9 @@ public class Etudiant extends Utilisateurs{
 
 	
 	//constructeur
-	public Etudiant(int id, String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
+	public Etudiant(String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
 		String mailSupplement, Parcours parcour, Formations formation) {
-		super(id, sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);
+		super(sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);
 		this.formation=formation;
 		this.parcour=parcour;
 

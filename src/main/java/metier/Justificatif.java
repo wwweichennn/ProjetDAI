@@ -12,10 +12,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import enumtype.StatutJustificatif;
 
-@Entity(name = "Justificatifs")
+@Entity
+@Table(name = "Justificatifs")
 
 public class Justificatif {
 	@Id
@@ -36,7 +38,7 @@ public class Justificatif {
 	//relation deposer 
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "CodeU")
     private Utilisateurs user;
 
 	
