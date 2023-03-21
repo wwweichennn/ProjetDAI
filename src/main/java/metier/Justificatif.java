@@ -9,6 +9,8 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import enumtype.StatutJustificatif;
+
 @Entity(name = "Justificatifs")
 
 public class Justificatif {

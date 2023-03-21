@@ -1,6 +1,8 @@
 package metier;
 
 import java.util.HashSet;
+import enumtype.Parcours;
+import enumtype.Formations;
 import java.util.Objects;
 import java.util.Set;
 
