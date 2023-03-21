@@ -1,6 +1,7 @@
 package metier;
 
+
 public class Etudiant extends Utilisateurs{
 
-	String 
+	private Parcous parcours;
 }
