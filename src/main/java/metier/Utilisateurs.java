@@ -9,10 +9,7 @@ public class Utilisateurs {
 	public String dateNaissance;
 	public String mail;
 	public String tel;
-	public String mailSupplement;
-	
-	
-	
+	public String mailSupplement;//swc
 	
 	public Utilisateurs() {
 		super();
