@@ -16,9 +16,9 @@ public Scolarite() {
 	
 }
 
-public Scolarite(int id, String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
+public Scolarite( String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
 		String mailSupplement, String bureauS) {
-	super(id, sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);
+	super(sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);
 	this.bureauS=bureauS;
 
 }

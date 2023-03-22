@@ -6,6 +6,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 
+
 /**
  * Chargement de la configuration et création de la SessionFactory.
  * hibernate.cfg.xml)
@@ -27,6 +28,10 @@ public class HibernateUtil {
 			 */
 
 			configuration.addAnnotatedClass(metier.Utilisateurs.class);
+			configuration.addAnnotatedClass(metier.Justificatif.class);
+			configuration.addAnnotatedClass(metier.Etudiant.class);
+			configuration.addAnnotatedClass(metier.Scolarite.class);
+		
 			
 			
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties()).build();

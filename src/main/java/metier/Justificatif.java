@@ -4,28 +4,43 @@ import java.io.File;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import enumtype.StatutJustificatif;
 
 import enumtype.StatutJustificatif;
 
-@Entity(name = "Justificatifs")
+@Entity
+@Table(name = "Justificatifs")
 
 public class Justificatif {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="CodeJ")	
 	private int idJ;
+	@Column(name="Statut")
 	private StatutJustificatif statut;
+	@Column(name="Pdf")
 	private File pdf;
+	@Column(name="DateDebut")
+	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateDebut;
+	@Column(name="DateFin")
+	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateFin;
 	
 	//relation deposer 
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id")
-	
-	
+    @JoinColumn(name = "CodeU")
     private Utilisateurs user;
 
 	
@@ -81,6 +96,16 @@ public class Justificatif {
 
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
+	}
+	
+	
+
+	public Utilisateurs getUser() {
+		return user;
+	}
+
+	public void setUser(Utilisateurs user) {
+		this.user = user;
 	}
 
 	@Override

@@ -8,7 +8,8 @@ import javax.persistence.*;
 
 
 
-@Entity(name="Utilisateurs")
+@Entity
+@Table(name="Utilisateurs")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TypeU",discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("Utilisateur")
@@ -17,19 +18,29 @@ import javax.persistence.*;
 
 public class Utilisateurs {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="CodeU")
 	public int id;
+	@Column(name="SexeU")
 	public String sexe;
+	@Column(name="NomU")
 	public String nom;
+	@Column(name="PrenomU")
 	public String prenom;
+	@Column(name="DateNaissance")
 	public String dateNaissance;
+	@Column(name="MailU")
 	public String mail;
+	@Column(name="TelU")
 	public String tel;
+	@Column(name="MailSupl")
 	public String mailSupplement;
 	
 
 	//relation deposer
 
-	@OneToMany(mappedBy = "etudiant", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "utilisateurs", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Justificatif> justificatifs = new HashSet<>();
 	
 	
@@ -39,10 +50,9 @@ public class Utilisateurs {
 
 	
 	
-	public Utilisateurs(int id, String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
+	public Utilisateurs( String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
 			String mailSupplement) {
 		super();
-		this.id = id;
 		this.sexe = sexe;
 		this.nom = nom;
 		this.prenom = prenom;
