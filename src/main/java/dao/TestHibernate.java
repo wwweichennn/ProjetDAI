@@ -69,7 +69,7 @@ public class TestHibernate
 			}
 		}
 
-	public static void createUsers ()
+	public static void createUsers () throws ParseException
 	{
 	/*----- Ouverture de la session -----*/
 	try (Session session = HibernateUtil.getSessionFactory().getCurrentSession())
@@ -80,13 +80,9 @@ public class TestHibernate
 		users u1=new users("weichen@gmail.com","1234","sun","weichen","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa");
 		users u2=new users("zhibo@gmail.com","1234","xie","zhibo","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa");
 
-
-
 		session.save(u1);
 		session.save(u2);
-
-
-		
+	
 		t.commit();
 		session.close();
 		}
