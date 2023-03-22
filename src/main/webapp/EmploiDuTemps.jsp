@@ -1,14 +1,20 @@
+
+<%@page import="metier.users"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="css/EmploiStyle.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>Accueil_Enseignant</title>
 </head>
-<body>
-<h1>Bienvenue de nouveau<s:property value="属性名"/></h1>
+<body background="1.jpg" background-size=50%;>
+<h1>Bienvenue de nouveau</h1>
+
+ 
 	<%
 	
 	%>
@@ -16,14 +22,15 @@
               ServletContext context = this.getServletContext(); 
              
               //seance
-               List<user> listeSeance =new ArrayList<Seance>();
+               //ArrayList<users> listeSeance =new ArrayList<users>();
                         
-               listeSeance=(List<Seance>)context.getAttribute("CLASSLIST");
-              User u=new User();
+             //  listeSeance=(List<Seance>)context.getAttribute("CLASSLIST");
+             // User u=new User();
      %>
      <%--用表单来打印课表信息--%>
 <table border="2" align="center" width="90%" cellpadding="2" cellspacing="2">
-    <caption><h2><%u.getValuesemeter();%>学期<%u.getValueclasscode(); %>Mes emploi du temps</h2></caption>
+    <h2> Mes emploi du temps</h2>
+    <h3>Semestre 1 week : 20/03/2023-26/03/2023</h3>
     <thead>  
     		<td>      </td>           
             <td>Lundi</td>
@@ -36,21 +43,101 @@
                                    
     </thead>
     <tbody>
-    <%for(Seance s:listeSeance){ %>
+    
         <%--boucle de seance --%>
         <tr>
-        <td><%=s.getheuredebut() %></td>
-        <td><%=s.getOne() %></td>
-        <td><%=s.getTwo() %></td>
-        <td><%=s.getThree() %></td>
-        <td><%=s.getFour() %></td>
-        <td><%=s.getFive() %></td>
-        <td><%=s.getSix()%></td>
-        <td><%=s.getSeven()%></td>
-    
+          <td class="heure">8:00-9:30</td>
+          <td class=course>CM Recueil des besoins Agile</td>
+          <td class=course>CM Données, intégration, analyse</td>
+          <td class=course></td>
+          <td class=course>CM Démarche de développement agile</td>
+          <td class=course></td>
+          <td> </td>
+          <td> </td>
         </tr>
-    <%} %>
-    </tbody>
+
+		 <tr>
+          <td class="heure">9:30-11:00</td>
+          <td class=course>CM Recueil des besoins Agile</td>
+          <td class=course>CM Recueil des besoins Agile</td>
+          <td class=course></td>
+          <td class=course></td>
+          <td class=course>Francais</td>
+          <td> </td>
+          <td> </td>
+          
+        </tr>
+        
+         <tr>
+          <td class="heure">11:00-12:30</td>
+         <td class=course>CM Recueil des besoins Agile</td>
+          <td class=course>CM Recueil des besoins Agile</td>
+          <td class=course></td>
+          <td class=course>Anglais</td>
+          <td class=course></td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        
+         <tr>
+          <td class="heure">12:30-14:00</td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+         
+   
+        </tr>
+        
+        <tr>
+          <td class="heure"">14:00-15:30</td>
+          <td class=course>CM Données, intégration, analyse  MC405</td>
+          <td class=course></td>
+          <td class=course></td>
+          <td class=course>CM Démarche de développement agile</td>
+          <td class=course></td>
+          <td> </td>
+          <td> </td>
+        </tr>
+
+		 <tr>
+          <td class="heure">15:30-17:00</td>
+          <td class=course></td>
+          <td class=course></td>
+          <td class=course></td>
+          <td class=course>CM Données, intégration, analyse</td>
+          <td class=course></td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        
+         <tr>
+          <td class="heure">17:00-18:30</td>
+          <td class=course></td>
+          <td class=course></td>
+          <td class=course></td>
+          <td class=course></td>
+          <td class=course></td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        
+         <tr>
+          <td class="heure">18:30-20:00</td>
+           <td class=course></td>
+          <td class=course></td>
+          <td class=course></td>
+          <td class=course></td>
+          <td class=course></td>
+          <td> </td>
+          <td> </td>
+          
+        </tr>
+    
+    </tbody>	
     </table>
 </body>
 </html>
