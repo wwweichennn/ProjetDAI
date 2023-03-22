@@ -15,6 +15,7 @@ public class Etudiant extends Utilisateurs{
 
 	//proprietes
 
+	
 	private Parcours parcour;
 	private Formations formation;
 

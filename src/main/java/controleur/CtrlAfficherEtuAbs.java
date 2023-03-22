@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import metier.Etudiant;
 /**
@@ -54,11 +55,19 @@ public class CtrlAfficherEtuAbs extends HttpServlet {
 
 		try {
 			session.beginTransaction();
-
-//			String queryString = "FROM Utilisateurs, Justificatifs WHERE Justificatifs.utilisateur.CodeU = Utilisateurs.CodeU AND Utilisateurs.parcour =" + action + " AND Justificatifs.Statut = 1" ;		//Requete pour recupérer les étudiants
-			String queryString = "SELECT u,j FROM Utilisateurs u FULL JOIN Justificatif j ON u.CodeU = j.CodeU WHERE u.parcour =" + action + " AND j.Statut = 1" ;		//Requete pour recupérer les étudiants
-
-			List<Etudiant> etudiants = session.createQuery(queryString).getResultList();		//recupere le résultat de la requete
+			
+			
+	
+	//String queryString = "FROM Utilisateurs, Justificatifs WHERE Justificatifs.utilisateur.CodeU = Utilisateurs.CodeU AND Utilisateurs.parcour =" + action + " AND Justificatifs.Statut = 1" ;		//Requete pour recupérer les étudiants
+	//	String queryString = "FROM Utilisateurs u left join u.justificatifs as j where j.statut = 1 and parcour="+action ;		//Requete pour recupérer les étudiants
+Query query = session.createQuery("FROM Utilisateurs u left join u.justificatifs as j where j.statut = 1 and parcour=:n") ;		//Requete pour recupérer les étudiants
+			query.setParameter("n",action );
+			
+			
+			List<Etudiant> etudiants = query.list();	
+			
+			
+		//	List<Etudiant> etudiants = session.createQuery(queryString).getResultList();		//recupere le résultat de la requete
 
 			request.setAttribute("etudiants", etudiants);	//cree un attribut étudiant et affecte la valeur
 			request.getRequestDispatcher("Scolarite/VerifJustificatif.jsp").forward(request, response);		//chainage

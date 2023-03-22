@@ -1,9 +1,12 @@
 package metier;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
@@ -15,6 +18,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.MapKeyColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -55,6 +59,14 @@ public class Utilisateurs {
 
 	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY)
 	private Set<Justificatif> justificatifs = new HashSet<>(0);
+	
+	//relation Particper
+	
+	  @OneToMany(mappedBy = "utilisateur",cascade = CascadeType.ALL)
+	    @MapKeyColumn(name = "CodeSea", updatable = false, insertable = false)
+	    private Map<Seance,Participer> validerMapS = new HashMap<>();
+	
+	
 	public Utilisateurs() {
 		super();
 	}

@@ -2,9 +2,13 @@ package dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import enumtype.Formations;
 import enumtype.Parcours;
@@ -47,7 +51,7 @@ public class TestHibernate {
 			/* transaction*/
 			Transaction t = session.beginTransaction();
 
-			Utilisateurs u = session.get(Utilisateurs.class,1);
+			Utilisateurs u = session.get(Utilisateurs.class,2);
 			Justificatif j = new Justificatif("www.projet.com",enumtype.StatutJustificatif.NonValide,DF.parse("03-09-2012"),DF.parse("09-09-2022"),u);
 
 			session.save(j);
@@ -61,14 +65,45 @@ public class TestHibernate {
 			e.printStackTrace();
 		}
 	}
+	public static void loadEtudiant() {
+		
+		
+		try (Session session=HibernateUtil.getSessionFactory().getCurrentSession()){
+			/* transaction*/
+			Transaction t = session.beginTransaction();
+		
+
+			String  hql = "FROM Utilisateurs u left join u.justificatifs as j where j.statut = 1 and parcour=0" ;		//Requete pour recupérer les étudiants
+			
+			Query<Etudiant>query = session.createQuery(hql);
+		
+			 List<Etudiant>  etudiants = query.list();		//recupere le résultat de la requete
+
+			for (metier.Etudiant e : etudiants) {
+				System.out.println(e.getNom());
+			}
+
+			t.commit();
+
+			
+			}
+	
+		
+
+		
+	}
+	
+	
 
 	public static void main(String[] args) {
 		System.out.println("-----Creations des users------");
-		TestHibernate.createUtilisateur();
+		//TestHibernate.createUtilisateur();
 		System.out.println("-----Creations des justificatifs------");
 		//TestHibernate.createJustificatif();
-
+		//requte pour obtenir les etudinats qui ont pas unjustificatif 
+		TestHibernate.loadEtudiant();
 		// TODO Auto-generated method stub
+	
 
 	}
 
