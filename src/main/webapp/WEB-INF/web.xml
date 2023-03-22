@@ -6,7 +6,7 @@
    <!--Faire matcher les servlets -->
   <servlet>
   	<servlet-name>accueil</servlet-name>
-  	<jsp-file>/AcceuilScolarite.jsp</jsp-file>
+  	<jsp-file>/Scolarite/AcceuilScolarite.jsp</jsp-file>
   </servlet>
   
     <!-- Donner un alias -->

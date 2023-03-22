@@ -27,7 +27,13 @@ public class Etudiant extends Utilisateurs{
 	//Relation deposer
 
 	
+	
 	//constructeur
+	
+	public Etudiant() {
+		
+	}
+	
 	public Etudiant(String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
 		String mailSupplement, Parcours parcour, Formations formation) {
 		super(sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);

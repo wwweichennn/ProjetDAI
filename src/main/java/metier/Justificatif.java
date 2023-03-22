@@ -16,8 +16,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import enumtype.StatutJustificatif;
 
-import enumtype.StatutJustificatif;
-
 @Entity
 @Table(name = "Justificatifs")
 
@@ -39,23 +37,23 @@ public class Justificatif {
 	
 	//relation deposer 
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "CodeU")
-    private Utilisateurs user;
+	//@ManyToOne(fetch = FetchType.EAGER)
+    //@JoinColumn(name = "CodeU")
+    //private Utilisateurs user;
 
 	
 	public Justificatif() {
 		
 	}
 	
-	public Justificatif(int idJ, File pdf, StatutJustificatif statut, Date dateDebut, Date dateFin, Utilisateurs user) {
+	public Justificatif(int idJ, File pdf, StatutJustificatif statut, Date dateDebut, Date dateFin) {
 		super();
 		this.idJ = idJ;
 		this.pdf = pdf;
 		this.statut=statut;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		this.user=user;
+		//this.user=user;
 	}
 
 	public int getIdJ() {
@@ -100,13 +98,7 @@ public class Justificatif {
 	
 	
 
-	public Utilisateurs getUser() {
-		return user;
-	}
 
-	public void setUser(Utilisateurs user) {
-		this.user = user;
-	}
 
 	@Override
 	public int hashCode() {
