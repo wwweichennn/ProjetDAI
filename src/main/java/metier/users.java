@@ -29,7 +29,7 @@ public class users {
 	@Column(name = "CodeU")
 	private String identifiant;
 	
-	@Column(name = "CodeU")
+	@Column(name = "motDePasse")
 	private String motDePasse;
 	
 	@Column(name = "nom")
@@ -47,7 +47,7 @@ public class users {
 	@Column(name = "mailSupplement")
 	private String mailSupplement;
 	
-	@Column(name = "phooto")
+	@Column(name = "photo")
 	private String photo;
 	
 	//Relation effectuer
