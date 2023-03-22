@@ -55,7 +55,8 @@ public class CtrlAfficherEtuAbs extends HttpServlet {
 		try {
 			session.beginTransaction();
 
-			String queryString = "FROM Utilisateurs WHERE parcour=" + action;		//Requete pour recupérer les étudiants
+//			String queryString = "FROM Utilisateurs, Justificatifs WHERE Justificatifs.utilisateur.CodeU = Utilisateurs.CodeU AND Utilisateurs.parcour =" + action + " AND Justificatifs.Statut = 1" ;		//Requete pour recupérer les étudiants
+			String queryString = "SELECT u,j FROM Utilisateurs u FULL JOIN Justificatif j ON u.CodeU = j.CodeU WHERE u.parcour =" + action + " AND j.Statut = 1" ;		//Requete pour recupérer les étudiants
 
 			List<Etudiant> etudiants = session.createQuery(queryString).getResultList();		//recupere le résultat de la requete
 
