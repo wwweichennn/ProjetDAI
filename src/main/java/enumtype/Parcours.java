@@ -2,6 +2,6 @@ package enumtype;
 
 public enum Parcours {
 
-IPM,
-ISIAD
+IPM, //0
+ISIAD //1
 }

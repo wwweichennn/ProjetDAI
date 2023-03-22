@@ -27,7 +27,7 @@ public class Justificatif {
 	@Column(name="Statut")
 	private StatutJustificatif statut;
 	@Column(name="Pdf")
-	private File pdf;
+	private String url;
 	@Column(name="DateDebut")
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateDebut;
@@ -37,23 +37,31 @@ public class Justificatif {
 	
 	//relation deposer 
 	
-	//@ManyToOne(fetch = FetchType.EAGER)
-    //@JoinColumn(name = "CodeU")
-    //private Utilisateurs user;
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "CodeU")
+    private Utilisateurs utilisateur;
 
 	
 	public Justificatif() {
 		
 	}
 	
-	public Justificatif(int idJ, File pdf, StatutJustificatif statut, Date dateDebut, Date dateFin) {
-		super();
-		this.idJ = idJ;
-		this.pdf = pdf;
+	public Justificatif(String url, StatutJustificatif statut, Date dateDebut, Date dateFin, Utilisateurs utilisateur) {
+		this.url = url;
 		this.statut=statut;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		//this.user=user;
+		this.utilisateur=utilisateur;
+	}
+	
+	
+
+	public Utilisateurs getUtilisateur() {
+		return utilisateur;
+	}
+
+	public void setUtilisateur(Utilisateurs utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 
 	public int getIdJ() {
@@ -72,12 +80,12 @@ public class Justificatif {
 		this.statut = statut;
 	}
 
-	public File getPdf() {
-		return pdf;
+	public String getUrl() {
+		return url;
 	}
 
-	public void setPdf(File pdf) {
-		this.pdf = pdf;
+	public void setPdf(String url) {
+		this.url = url;
 	}
 
 	public Date getDateDebut() {
@@ -102,7 +110,7 @@ public class Justificatif {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dateDebut, dateFin, idJ, pdf, statut);
+		return Objects.hash(dateDebut, dateFin, idJ, url, statut);
 	}
 
 	@Override
@@ -115,12 +123,12 @@ public class Justificatif {
 			return false;
 		Justificatif other = (Justificatif) obj;
 		return Objects.equals(dateDebut, other.dateDebut) && Objects.equals(dateFin, other.dateFin) && idJ == other.idJ
-				&& Objects.equals(pdf, other.pdf) && statut == other.statut;
+				&& Objects.equals(url, other.url) && statut == other.statut;
 	}
 
 	@Override
 	public String toString() {
-		return "Justificatif [idJ=" + idJ + ", statut=" + statut + ", pdf=" + pdf + ", dateDebut=" + dateDebut
+		return "Justificatif [idJ=" + idJ + ", statut=" + statut + ", pdf=" + url + ", dateDebut=" + dateDebut
 				+ ", dateFin=" + dateFin + "]";
 	}
 

@@ -1,5 +1,5 @@
 package enumtype;
 public enum Formations {
-FI,
-FA
+FI, //0
+FA  //1
 }

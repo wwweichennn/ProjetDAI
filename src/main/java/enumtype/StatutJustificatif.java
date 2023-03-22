@@ -1,7 +1,7 @@
 package enumtype;
 
 public enum StatutJustificatif {
-	Validé,
-	NonValidé;
+	Valide, //0
+	NonValide; //1
 
 }

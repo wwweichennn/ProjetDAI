@@ -40,10 +40,9 @@ public class Utilisateurs {
 
 	//relation deposer
 
-	//@OneToMany(mappedBy = "Utilisateurs", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-	//private Set<Justificatif> justificatifs = new HashSet<>();
 	
-	
+	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY)
+	private Set<Justificatif> justificatifs = new HashSet<>(0);
 	public Utilisateurs() {
 		super();
 	}
@@ -60,6 +59,19 @@ public class Utilisateurs {
 		this.mail = mail;
 		this.tel = tel;
 		this.mailSupplement = mailSupplement;
+	}
+
+	
+
+
+	public Set<Justificatif> getJustificatifs() {
+		return justificatifs;
+	}
+
+
+
+	public void setJustificatifs(Set<Justificatif> justificatifs) {
+		this.justificatifs = justificatifs;
 	}
 
 
@@ -117,7 +129,7 @@ public class Utilisateurs {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(dateNaissance, id, mail, mailSupplement, nom, prenom, sexe, tel);
+		return Objects.hash(dateNaissance, id, justificatifs, mail, mailSupplement, nom, prenom, sexe, tel);
 	}
 
 
@@ -131,7 +143,8 @@ public class Utilisateurs {
 		if (getClass() != obj.getClass())
 			return false;
 		Utilisateurs other = (Utilisateurs) obj;
-		return Objects.equals(dateNaissance, other.dateNaissance) && id == other.id && Objects.equals(mail, other.mail)
+		return Objects.equals(dateNaissance, other.dateNaissance) && id == other.id
+				&& Objects.equals(justificatifs, other.justificatifs) && Objects.equals(mail, other.mail)
 				&& Objects.equals(mailSupplement, other.mailSupplement) && Objects.equals(nom, other.nom)
 				&& Objects.equals(prenom, other.prenom) && Objects.equals(sexe, other.sexe)
 				&& Objects.equals(tel, other.tel);
@@ -142,8 +155,13 @@ public class Utilisateurs {
 	@Override
 	public String toString() {
 		return "Utilisateurs [id=" + id + ", sexe=" + sexe + ", nom=" + nom + ", prenom=" + prenom + ", dateNaissance="
-				+ dateNaissance + ", mail=" + mail + ", tel=" + tel + ", mailSupplement=" + mailSupplement + "]";
+				+ dateNaissance + ", mail=" + mail + ", tel=" + tel + ", mailSupplement=" + mailSupplement
+				+ ", justificatifs=" + justificatifs + "]";
 	}
+
+
+
+	
 	
 	
 	
