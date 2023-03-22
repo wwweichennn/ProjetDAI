@@ -3,8 +3,11 @@ package dao;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import javax.persistence.*;
+import java.util.*;
 
 import enumtype.Formations;
 import enumtype.Parcours;
@@ -42,6 +45,9 @@ public class TestHibernate {
 		}
 	}
 
+	/**
+	 * Methode pour creer et associer un justificatif
+	 */
 	public static void createJustificatif() {
 		try (Session session=HibernateUtil.getSessionFactory().getCurrentSession()){
 			/* transaction*/
@@ -61,12 +67,19 @@ public class TestHibernate {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * MAIN
+	 * @param args
+	 */
 
 	public static void main(String[] args) {
 		System.out.println("-----Creations des users------");
-		TestHibernate.createUtilisateur();
+		//TestHibernate.createUtilisateur();
 		System.out.println("-----Creations des justificatifs------");
 		//TestHibernate.createJustificatif();
+		System.out.println("------Load Etudiant ----------");
+		//TestHibernate.afficherEtudiantAbs();
 
 		// TODO Auto-generated method stub
 
