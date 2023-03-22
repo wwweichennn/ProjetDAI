@@ -1,18 +1,12 @@
 package metier;
 
-import java.util.HashSet;
-import enumtype.Parcours;
-import enumtype.Formations;
 import java.util.Objects;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import enumtype.Parcours;
+
 import enumtype.Formations;
+import enumtype.Parcours;
 
 @Entity
 @DiscriminatorValue("Etudiant")
@@ -20,20 +14,20 @@ import enumtype.Formations;
 public class Etudiant extends Utilisateurs{
 
 	//proprietes
-	
+
 	private Parcours parcour;
 	private Formations formation;
-	
+
 	//Relation deposer
 
-	
-	
+
+
 	//constructeur
-	
+
 	public Etudiant() {
-		
+
 	}
-	
+
 	public Etudiant(String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
 		String mailSupplement, Parcours parcour, Formations formation) {
 		super(sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);
@@ -70,9 +64,7 @@ public class Etudiant extends Utilisateurs{
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj))
-			return false;
-		if (getClass() != obj.getClass())
+		if (!super.equals(obj) || (getClass() != obj.getClass()))
 			return false;
 		Etudiant other = (Etudiant) obj;
 		return formation == other.formation && parcour == other.parcour;
@@ -82,7 +74,7 @@ public class Etudiant extends Utilisateurs{
 	public String toString() {
 		return "Etudiant [parcour=" + parcour + ", formation=" + formation + "]";
 	}
-	
-	
-	
+
+
+
 }

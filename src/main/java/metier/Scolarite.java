@@ -9,11 +9,11 @@ import javax.persistence.Entity;
 @DiscriminatorValue("Scolarite")
 
 public class Scolarite extends Utilisateurs{
-	
+
 private String bureauS;
 
 public Scolarite() {
-	
+
 }
 
 public Scolarite( String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
@@ -43,9 +43,7 @@ public int hashCode() {
 public boolean equals(Object obj) {
 	if (this == obj)
 		return true;
-	if (!super.equals(obj))
-		return false;
-	if (getClass() != obj.getClass())
+	if (!super.equals(obj) || (getClass() != obj.getClass()))
 		return false;
 	Scolarite other = (Scolarite) obj;
 	return Objects.equals(bureauS, other.bureauS);

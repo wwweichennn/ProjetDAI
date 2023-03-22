@@ -1,7 +1,7 @@
 package controleur;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,8 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.*;
-import org.hibernate.cfg.*;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 import metier.Etudiant;
 /**
@@ -23,17 +24,21 @@ public class CtrlAfficherEtuAbs extends HttpServlet {
 	/**
 	 * doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//Lecture des paramètres
-		String action = request.getParameter("type_promo");
+//		//Lecture des paramètres
+		String action = "0";
+		if(request.getParameter("type_promo").equals("ISIAD")) {
+			action = "1"; 
+		}
 
 		//		//Actions a effectuer
 		//		switch(action) {
 		//		case "IPM" :
 		//			//Chargement des etudiants concerné dans la Bd
-		//			
-		//			
+		//
+		//
 		//			//Pour un chainage vers page des IPM :
 		//			request.getRequestDispatcher("EtuAbsentIPM").forward(request, response);
 		//		}
@@ -50,12 +55,12 @@ public class CtrlAfficherEtuAbs extends HttpServlet {
 		try {
 			session.beginTransaction();
 
-			String queryString = "FROM Etudiant WHERE parcours=" + action + " AND nonValide=true";		//Requete pour recupérer les étudiants
+			String queryString = "FROM Utilisateurs WHERE parcour=" + action;		//Requete pour recupérer les étudiants
 
 			List<Etudiant> etudiants = session.createQuery(queryString).getResultList();		//recupere le résultat de la requete
 
 			request.setAttribute("etudiants", etudiants);	//cree un attribut étudiant et affecte la valeur
-			request.getRequestDispatcher("VerifJustification.jsp").forward(request, response);		//chainage
+			request.getRequestDispatcher("Scolarite/VerifJustificatif.jsp").forward(request, response);		//chainage
 
 			session.getTransaction().commit();
 		} catch (Exception e) {
@@ -65,12 +70,15 @@ public class CtrlAfficherEtuAbs extends HttpServlet {
 			session.close();
 			factory.close();
 		}
-	}	
+	}
+		
+		
 
 
 	/**
 	 * doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { doGet(request, response); }
 
 }

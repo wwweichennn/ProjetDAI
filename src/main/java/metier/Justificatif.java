@@ -1,6 +1,5 @@
 package metier;
 
-import java.io.File;
 import java.util.Date;
 import java.util.Objects;
 
@@ -14,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+
 import enumtype.StatutJustificatif;
 
 @Entity
@@ -22,7 +22,7 @@ import enumtype.StatutJustificatif;
 public class Justificatif {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="CodeJ")	
+	@Column(name="CodeJ")
 	private int idJ;
 	@Column(name="Statut")
 	private StatutJustificatif statut;
@@ -34,18 +34,18 @@ public class Justificatif {
 	@Column(name="DateFin")
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateFin;
-	
-	//relation deposer 
-	
+
+	//relation deposer
+
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "CodeU")
     private Utilisateurs utilisateur;
 
-	
+
 	public Justificatif() {
-		
+
 	}
-	
+
 	public Justificatif(String url, StatutJustificatif statut, Date dateDebut, Date dateFin, Utilisateurs utilisateur) {
 		this.url = url;
 		this.statut=statut;
@@ -53,8 +53,8 @@ public class Justificatif {
 		this.dateFin = dateFin;
 		this.utilisateur=utilisateur;
 	}
-	
-	
+
+
 
 	public Utilisateurs getUtilisateur() {
 		return utilisateur;
@@ -103,8 +103,8 @@ public class Justificatif {
 	public void setDateFin(Date dateFin) {
 		this.dateFin = dateFin;
 	}
-	
-	
+
+
 
 
 
@@ -117,9 +117,7 @@ public class Justificatif {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
+		if ((obj == null) || (getClass() != obj.getClass()))
 			return false;
 		Justificatif other = (Justificatif) obj;
 		return Objects.equals(dateDebut, other.dateDebut) && Objects.equals(dateFin, other.dateFin) && idJ == other.idJ
@@ -132,9 +130,9 @@ public class Justificatif {
 				+ ", dateFin=" + dateFin + "]";
 	}
 
-	
-	
-	
-	
+
+
+
+
 
 }

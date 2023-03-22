@@ -4,7 +4,19 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 
 
@@ -17,7 +29,7 @@ import javax.persistence.*;
 
 
 public class Utilisateurs {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="CodeU")
@@ -36,19 +48,19 @@ public class Utilisateurs {
 	public String tel;
 	@Column(name="MailSupl")
 	public String mailSupplement;
-	
+
 
 	//relation deposer
 
-	
+
 	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY)
 	private Set<Justificatif> justificatifs = new HashSet<>(0);
 	public Utilisateurs() {
 		super();
 	}
 
-	
-	
+
+
 	public Utilisateurs( String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
 			String mailSupplement) {
 		super();
@@ -61,7 +73,7 @@ public class Utilisateurs {
 		this.mailSupplement = mailSupplement;
 	}
 
-	
+
 
 
 	public Set<Justificatif> getJustificatifs() {
@@ -138,9 +150,7 @@ public class Utilisateurs {
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
+		if ((obj == null) || (getClass() != obj.getClass()))
 			return false;
 		Utilisateurs other = (Utilisateurs) obj;
 		return Objects.equals(dateNaissance, other.dateNaissance) && id == other.id
@@ -161,9 +171,9 @@ public class Utilisateurs {
 
 
 
-	
-	
-	
-	
+
+
+
+
 
 }
