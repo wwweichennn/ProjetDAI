@@ -6,9 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+
 import org.hibernate.query.Query;
+
+import javax.persistence.*;
+import java.util.*;
+
 
 import enumtype.Formations;
 import enumtype.Parcours;
@@ -46,6 +52,9 @@ public class TestHibernate {
 		}
 	}
 
+	/**
+	 * Methode pour creer et associer un justificatif
+	 */
 	public static void createJustificatif() {
 		try (Session session=HibernateUtil.getSessionFactory().getCurrentSession()){
 			/* transaction*/
@@ -65,6 +74,7 @@ public class TestHibernate {
 			e.printStackTrace();
 		}
 	}
+
 	public static void loadEtudiant() {
 		
 		
@@ -95,14 +105,19 @@ public class TestHibernate {
 	
 	
 
+
 	public static void main(String[] args) {
 		System.out.println("-----Creations des users------");
 		//TestHibernate.createUtilisateur();
 		System.out.println("-----Creations des justificatifs------");
-		//TestHibernate.createJustificatif();
+		//TestHibernate.createJustificatif
 		//requte pour obtenir les etudinats qui ont pas unjustificatif 
 		TestHibernate.loadEtudiant();
-		// TODO Auto-generated method stub
+
+		System.out.println("------Load Etudiant ----------");
+		//TestHibernate.afficherEtudiantAbs();
+
+
 	
 
 	}
