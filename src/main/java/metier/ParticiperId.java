@@ -6,18 +6,19 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class ParticiperId {
+public class ParticiperId implements java.io.Serializable {
+
 	@Column(name="CodeUt")
 	private int codeUt;
+
 	@Column(name="CodeSea")
 	private int codeSea;
-	
+
 	public ParticiperId() {
-		
+
 	}
 
 	public ParticiperId(int codeUt, int codeSea) {
-		
 		this.codeUt = codeUt;
 		this.codeSea = codeSea;
 	}
@@ -59,8 +60,8 @@ public class ParticiperId {
 	public String toString() {
 		return "ParticiperId [codeUt=" + codeUt + ", codeSea=" + codeSea + "]";
 	}
-	
-	
-	
+
+
+
 
 }

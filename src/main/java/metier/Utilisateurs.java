@@ -19,6 +19,7 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.MapKeyColumn;
+import javax.persistence.MapKeyJoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -38,18 +39,25 @@ public class Utilisateurs {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="CodeU")
 	public int id;
+
 	@Column(name="SexeU")
 	public String sexe;
+
 	@Column(name="NomU")
 	public String nom;
+
 	@Column(name="PrenomU")
 	public String prenom;
+
 	@Column(name="DateNaissance")
 	public String dateNaissance;
+
 	@Column(name="MailU")
 	public String mail;
+
 	@Column(name="TelU")
 	public String tel;
+
 	@Column(name="MailSupl")
 	public String mailSupplement;
 
@@ -59,19 +67,17 @@ public class Utilisateurs {
 
 	@OneToMany(mappedBy = "utilisateur", fetch = FetchType.LAZY)
 	private Set<Justificatif> justificatifs = new HashSet<>(0);
-	
+
 	//relation Particper
-	
-	  @OneToMany(mappedBy = "utilisateur",cascade = CascadeType.ALL)
-	    @MapKeyColumn(name = "CodeSea", updatable = false, insertable = false)
-	    private Map<Seance,Participer> validerMapS = new HashMap<>();
-	
-	
+
+	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL)
+	@MapKeyJoinColumn(name = "CodeSea", updatable = false, insertable = false)
+	private Map<Seance,Participer> validerMapS = new HashMap<>();
+
+
 	public Utilisateurs() {
 		super();
 	}
-
-
 
 	public Utilisateurs( String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
 			String mailSupplement) {

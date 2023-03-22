@@ -2,40 +2,41 @@ package metier;
 
 import java.util.Objects;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 import enumtype.StatutAppel;
 
+@Entity
 public class Participer {
-	
-	
+
+	//Propriété
+	@EmbeddedId
 	private ParticiperId idP;
+
 	private StatutAppel statut;
-	
-	
+
+
 	//relation vers Utilisateur
-	   @ManyToOne
-	    @JoinColumn(name = "CodeUt", insertable = false,updatable = false)
-	    private Utilisateurs utilisateur;
-	
+	@ManyToOne
+	@JoinColumn(name = "CodeUt", insertable = false,updatable = false)
+	private Utilisateurs utilisateur;
+
 	//Relation vers Seance
-	   @ManyToOne
-	    @JoinColumn(name = "CodeSea", insertable = false,updatable = false)
-	    private Seance seance;
-	   
-	   public Participer () {
-		   
-	   }
+	@ManyToOne
+	@JoinColumn(name = "CodeSea", insertable = false,updatable = false)
+	private Seance seance;
+
+	//Constructeurs
+	public Participer () { }
 
 	public Participer(ParticiperId idP, StatutAppel statut, Utilisateurs utilisateur, Seance seance) {
-		
 		this.idP = idP;
 		this.statut = statut;
 		this.utilisateur = utilisateur;
 		this.seance = seance;
 	}
 
+	//Getter & Setter
 	public ParticiperId getIdP() {
 		return idP;
 	}
@@ -68,6 +69,7 @@ public class Participer {
 		this.seance = seance;
 	}
 
+	//Méthode
 	@Override
 	public int hashCode() {
 		return Objects.hash(idP, seance, statut, utilisateur);
@@ -91,9 +93,9 @@ public class Participer {
 		return "Participer [idP=" + idP + ", statut=" + statut + ", utilisateur=" + utilisateur + ", seance=" + seance
 				+ "]";
 	}
-	
-	
-	   
-	   
-	
+
+
+
+
+
 }
