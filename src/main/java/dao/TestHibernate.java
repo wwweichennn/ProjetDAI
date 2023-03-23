@@ -82,7 +82,7 @@ public class TestHibernate {
 			/* transaction*/
 			Transaction t = session.beginTransaction();
 
-		
+
 
 			String  hql = "FROM Utilisateurs u left join u.justificatifs as j where j.statut = 1 and parcour=0" ;		//Requete pour recupérer les étudiants
 
@@ -109,6 +109,8 @@ public class TestHibernate {
 
 			t.commit();}
 	}
+
+
 
 
 	public static void main(String[] args) {

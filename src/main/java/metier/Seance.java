@@ -2,6 +2,7 @@ package metier;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
@@ -41,10 +42,12 @@ public class Seance {
 //	Relation participer
  @OneToMany(mappedBy = "seance",cascade = CascadeType.ALL)
  @MapKeyColumn(name = "CodeU", updatable = false, insertable = false)
-   private HashMap<Utilisateurs,Participer> validerMapUtilisateur = new HashMap<>();
+   private Map<Utilisateurs,Participer> validerMapUtilisateur = new HashMap<>();
 //
 
-
+public Seance () {
+	
+}
 	public Seance(int idSeance, String salleS, Date dateS, double dureeS, String heureDebutS,
 			StatutFicheAppel ficheAppelStatut) {
 	
@@ -131,52 +134,18 @@ public class Seance {
 
 
 
-	public HashMap<Utilisateurs, Participer> getValiderMap() {
-		return validerMap;
+	public HashMap<Utilisateurs, Participer> getValiderMapUtilisateur() {
+		return validerMapUtilisateur;
 	}
 
 
 
-	public void setValiderMap(HashMap<Utilisateurs, Participer> validerMap) {
-		this.validerMap = validerMap;
-	}
-
-
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(dateS, dureeS, ficheAppelStatut, heureDebutS, idSeance, salleS, validerMap);
-	}
-
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Seance other = (Seance) obj;
-		return Objects.equals(dateS, other.dateS)
-				&& Double.doubleToLongBits(dureeS) == Double.doubleToLongBits(other.dureeS)
-				&& ficheAppelStatut == other.ficheAppelStatut && Objects.equals(heureDebutS, other.heureDebutS)
-				&& idSeance == other.idSeance && Objects.equals(salleS, other.salleS)
-				&& Objects.equals(validerMap, other.validerMap);
-	}
-
-
-
-	@Override
-	public String toString() {
-		return "Seance [idSeance=" + idSeance + ", salleS=" + salleS + ", dateS=" + dateS + ", dureeS=" + dureeS
-				+ ", heureDebutS=" + heureDebutS + ", ficheAppelStatut=" + ficheAppelStatut + ", validerMap="
-				+ validerMap + "]";
+	public void setValiderMapUtilisateur(HashMap<Utilisateurs, Participer> validerMapUtilisateur) {
+		this.validerMapUtilisateur = validerMapUtilisateur;
 	}
 	
 	
-	
-    
-    
+
+
+
 }

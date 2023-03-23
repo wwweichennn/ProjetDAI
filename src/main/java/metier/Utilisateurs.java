@@ -30,9 +30,6 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TypeU",discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("Utilisateur")
-
-
-
 public class Utilisateurs {
 
 	@Id
@@ -75,15 +72,10 @@ public class Utilisateurs {
     @MapKeyColumn(name = "CodeSea", updatable = false, insertable = false)
     private Map<Seance,Participer> validerMapSeance = new HashMap<>();
 	
-	
-
-
-
-
 
 
 	public Utilisateurs() {
-		super();
+		
 	}
 
 	public Utilisateurs( String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,

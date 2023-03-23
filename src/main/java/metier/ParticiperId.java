@@ -1,13 +1,14 @@
 
 package metier;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class ParticiperId {
+public class ParticiperId implements Serializable {
 	@Column(name="CodeU")
 	private int codeUt;
 	@Column(name="CodeSea")
@@ -59,10 +60,5 @@ public class ParticiperId {
 	@Override
 	public String toString() {
 		return "ParticiperId [codeUt=" + codeUt + ", codeSea=" + codeSea + "]";
-	}
-	
-	
-	
-
-}
+	}}
 

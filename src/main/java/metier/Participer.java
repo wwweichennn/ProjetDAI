@@ -3,15 +3,21 @@ package metier;
 
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 import enumtype.StatutAppel;
 
+
+@Entity
 public class Participer {
 	
-	
+	@EmbeddedId
 	private ParticiperId idP;
+	@Column(name="StatutP")
 	private StatutAppel statut;
 	
 	
@@ -24,6 +30,8 @@ public class Participer {
 	   @ManyToOne
 	    @JoinColumn(name = "CodeSea", insertable = false,updatable = false)
 	    private Seance seance;
+	   
+	   
 	   
 	   public Participer () {
 		   
