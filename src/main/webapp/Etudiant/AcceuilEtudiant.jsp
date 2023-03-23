@@ -13,8 +13,8 @@
 
 			<h2></h2>
 			<ul>
-				<li><a href="CtrlFonctionalitesEtu?type_promo=Modif">Modifier mon profil </a></li>
-				<li><a href="CtrlFonctionalitesEtu?type_promo=Fonct">Consulter mes absences </a></li>
+				<li><a href="CtrlFonctionalitesEtu?type_action=Modif">Modifier mon profil </a></li>
+				<li><a href="CtrlFonctionalitesEtu?type_action=Fonct">Consulter mes absences </a></li>
 			</ul>
 
 </body>

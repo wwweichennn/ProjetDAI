@@ -10,43 +10,34 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import livredor.bd.Bd;
-import livredor.bd.ExceptionLivreDor;
-import livredor.metier.MessageDor;
-import livredor.metier.Util;
 
 /**
  * Servlet implementation class CtrlUpdateEtu
  */
-@WebServlet("/CtrlUpdateEtu")
+@WebServlet("/CtrlFonctionalitesEtu")
 public class CtrlFonctionalitesEtu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 	String action = request.getParameter("type_action");
-	String url;
+	String url = null;
 
 	
-	if (action ==  null)
-		url = "AcceuilEtudiant";
-	else
-		{
+	
 		switch (action)
 			{
 			case "Modif":
-				url = "verifJustif";
+				url = "ModifProfil";
 				break;
 
 			case "Fonct":
-				url = "consulterAbs";
+				url = "ConsultAbs";
 				break;
 
-
-
 			}
-		}
-
+		System.out.println(url);
+		
 	// Chainage.
 	request.getRequestDispatcher(url).forward(request, response);
 	}

@@ -23,11 +23,11 @@
 	</servlet>
 	
 	<servlet>
-		<servlet-name>modifierprofil</servlet-name>
+		<servlet-name>ModifProfil</servlet-name>
 		<jsp-file>/Etudiant/ModifProfil.jsp</jsp-file>
 	</servlet>
 	<servlet>
-		<servlet-name>consulterAbs</servlet-name>
+		<servlet-name>ConsultAbs</servlet-name>
 		<jsp-file>/Etudiant/ConsultAbs.jsp</jsp-file>
 	</servlet>
 
@@ -46,17 +46,18 @@
 		<url-pattern>/Verification</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>consulterAbs</servlet-name>
-		<url-pattern>/consulterAbs</url-pattern>
+		<servlet-name>ConsultAbs</servlet-name>
+		<url-pattern>/ConsultAbs</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>modifierprofil</servlet-name>
-		<url-pattern>/modifierprofil</url-pattern>
+		<servlet-name>ModifProfil</servlet-name>
+		<url-pattern>/ModifProfil</url-pattern>
 	</servlet-mapping>
 
 	<!-- -->
 	<welcome-file-list>
-		<welcome-file>Accueil</welcome-file>
+<!-- 		<welcome-file>AcceuilEtudiant</welcome-file> -->
+		<welcome-file>AcceuilEtudiant</welcome-file>
 	</welcome-file-list>
 
 </web-app>
