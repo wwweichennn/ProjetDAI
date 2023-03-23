@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import metier.Participer;
 
 import enumtype.StatutFicheAppel;
 @Entity
@@ -22,6 +23,7 @@ import enumtype.StatutFicheAppel;
 public class Seance {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="CodeSea")
 	private int idSeance;
 	 @Column(name = "SalleS")
 	private String salleS;
@@ -36,10 +38,10 @@ public class Seance {
 	private StatutFicheAppel ficheAppelStatut;
 	
 
-//	
-//    @OneToMany(mappedBy = "seance",cascade = CascadeType.ALL)
-//    @MapKeyColumn(name = "CodeUt", updatable = false, insertable = false)
-//    private HashMap<Utilisateurs,Participer> validerMap = new HashMap<>();
+//	Relation participer
+ @OneToMany(mappedBy = "seance",cascade = CascadeType.ALL)
+ @MapKeyColumn(name = "CodeU", updatable = false, insertable = false)
+   private HashMap<Utilisateurs,Participer> validerMapUtilisateur = new HashMap<>();
 //
 
 

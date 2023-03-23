@@ -69,21 +69,19 @@ public class Utilisateurs {
 	private Set<Justificatif> justificatifs = new HashSet<>(0);
 
 	//relation Particper
-<<<<<<< HEAD
-	
-//	  @OneToMany(mappedBy = "utilisateur",cascade = CascadeType.ALL)
-//	    @MapKeyColumn(name = "CodeSea", updatable = false, insertable = false)
-//	    private Map<Seance,Participer> validerMapS = new HashMap<>();
-	
-	
-=======
 
-	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL)
-	@MapKeyJoinColumn(name = "CodeSea", updatable = false, insertable = false)
-	private Map<Seance,Participer> validerMapS = new HashMap<>();
+	
+  @OneToMany(mappedBy = "utilisateur",cascade = CascadeType.ALL)
+    @MapKeyColumn(name = "CodeSea", updatable = false, insertable = false)
+    private Map<Seance,Participer> validerMapSeance = new HashMap<>();
+	
+	
 
 
->>>>>>> refs/remotes/origin/Binôme
+
+
+
+
 	public Utilisateurs() {
 		super();
 	}
