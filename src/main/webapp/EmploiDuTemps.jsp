@@ -5,6 +5,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/EmploiStyle.css">
+<script src="js/EmploiDuTempsJS"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Accueil_Enseignant</title>
@@ -23,7 +24,7 @@
            	 <a href="#">Mes cours</a>    
               <ul>     
                    <li>     
-                       <a href="">2022-2023</a>     
+                       <a href="CoursAnnee.jsp">2022-2023</a>     
                    </li>     
                    <li>     
                        <a href="">2021-2022</a>     
@@ -51,8 +52,8 @@
 		<h1>Bienvenue de nouveau,</h1>
 		<h2>Mes Emploi du Temps</h2>
 		<h3>Semestre 1 week : 20/03/2023-26/03/2023</h3>
+		
 	</div> 
-	
 	<div class="div2"> 
 		<table border="2" align="center" width="90%" cellpadding="2" cellspacing="2">
   
