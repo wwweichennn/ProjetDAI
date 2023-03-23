@@ -17,21 +17,21 @@ import javax.persistence.Temporal;
 import enumtype.StatutJustificatif;
 
 @Entity
-@Table(name = "Justificatifs")
+
 
 public class Justificatif {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="CodeJ")
+
 	private int idJ;
-	@Column(name="Statut")
+	
 	private StatutJustificatif statut;
-	@Column(name="Pdf")
+
 	private String url;
-	@Column(name="DateDebut")
+
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateDebut;
-	@Column(name="DateFin")
+	
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateFin;
 
@@ -39,6 +39,7 @@ public class Justificatif {
 
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "CodeU")
+	
     private Utilisateurs utilisateur;
 
 

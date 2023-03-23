@@ -20,11 +20,17 @@ public class CtrlFonctionalitesEtu extends HttpServlet {
        
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-	String action = request.getParameter("type_action");
-	String url = null;
 
+	String action = request.getParameter("type_action");
+	String url;
+
+
+	if (action ==  null)
+		url = "AcceuilEtudiant";
+	else
+		{
 	
-	
+
 		switch (action)
 			{
 			case "Modif":
@@ -35,15 +41,18 @@ public class CtrlFonctionalitesEtu extends HttpServlet {
 				url = "ConsultAbs";
 				break;
 
+			default:
+				url = "AcceuilEtudiant";
 			}
-		System.out.println(url);
+		
+		}
 		
 	// Chainage.
 	request.getRequestDispatcher(url).forward(request, response);
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		processRequest(request, response);
 	}
 
 	/**
