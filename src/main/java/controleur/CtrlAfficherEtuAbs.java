@@ -43,6 +43,7 @@ public class CtrlAfficherEtuAbs extends HttpServlet {
 			try {
 				//Chargement des etudiants concerné dans la Bd
 				List liste = TestHibernate.loadEtuAbsNonJustifier();
+				
 
 				//Pour un chainage vers page des IPM 
 				request.setAttribute("listeAbs", liste);
