@@ -148,6 +148,7 @@ form{
 	margin-bottom: 4px;
 }
 
+
 a{
 	display: block;
 	text-align: right;
@@ -178,6 +179,21 @@ a:hover{
 	cursor: pointer;
 	transition: .5s;
 }
+.role{
+	height: 30px;
+	border-radius: 10px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+	background-size: 200%;
+	font-size: 1.0rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	margin: 1rem 0;
+	cursor: pointer;
+	transition: .5s;
+}
+
 .btn:hover{
 	background-position: right;
 }

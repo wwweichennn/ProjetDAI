@@ -9,7 +9,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class ParticiperID implements Serializable{
 	
-	@Column(name = "CodeUsers")
+	@Column(name = "CodeU")
 	private int codeU;
 
 	@Column(name = "CodeSeance")

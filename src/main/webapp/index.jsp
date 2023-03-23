@@ -24,7 +24,7 @@
            		   		<i class="fas fa-user"></i>
            		   </div>
            		   <div class="div">
-           		   		<h5>email</h5>
+           		   		<h5>Email</h5>
            		   		<input type="text" class="input">
            		   </div>
            		</div>
@@ -33,10 +33,19 @@
            		    	<i class="fas fa-lock"></i>
            		   </div>
            		   <div class="div">
-           		    	<h5>password</h5>
+           		    	<h5>Password</h5>
            		    	<input type="password" class="input">
             	   </div>
+            	   
             	</div>
+            	<br/>
+            
+            	<input type="button" class="role" value="Scolarité">
+     			<input type="button" class="role" value="Enseignant">
+     			<input type="button" class="role" value="Etudiant">
+      			
+      			
+      			<br/>
             	<a href="#">forget password?</a>
             	<input type="submit" class="btn" value="login">
             </form>

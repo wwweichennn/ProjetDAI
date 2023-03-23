@@ -43,13 +43,13 @@ public class Justificatif implements Serializable {
 	/*----- DEPOSER -----*/
 	@ManyToOne(fetch =  FetchType.EAGER)
 	@JoinColumn(name="CodeU")
-	private users users;
+	private Users users;
 
-	public users getUsersJustificatif() {
+	public Users getUsersJustificatif() {
 		return users;
 	}
 
-	public void setUsersJustificatif(users users) {
+	public void setUsersJustificatif(Users users) {
 		this.users = users;
 	}
 	
@@ -63,7 +63,7 @@ public class Justificatif implements Serializable {
 	 * Constructeurs.
 	 */
 
-	public Justificatif(boolean validation, String url, Date dateDeb, Date dateFin, users users) {
+	public Justificatif(boolean validation, String url, Date dateDeb, Date dateFin, Users users) {
 		super();
 		this.validation = validation;
 		this.url = url;

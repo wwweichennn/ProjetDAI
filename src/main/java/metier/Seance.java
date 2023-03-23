@@ -44,7 +44,7 @@ public class Seance {
 	//participer
 	@OneToMany(mappedBy = "seance", cascade = CascadeType.ALL)
 	@MapKeyJoinColumn(name = "CodeU", updatable = false, insertable = false)
-	private Map<users,Participer> participer = new HashMap<users, Participer>(0);
+	private Map<Users,Participer> participer = new HashMap<Users, Participer>(0);
 	
 	public Seance() {
 		super();

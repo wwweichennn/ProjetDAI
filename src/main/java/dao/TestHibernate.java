@@ -10,7 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import metier.Cours;
-import metier.users;
+import metier.Users;
 
 
 /**
@@ -77,8 +77,8 @@ public class TestHibernate
 		/*----- Ouverture d'une transaction -----*/
 		Transaction t = session.beginTransaction();
 
-		users u1=new users("weichen@gmail.com","1234","sun","weichen","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa");
-		users u2=new users("zhibo@gmail.com","1234","xie","zhibo","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa");
+		Users u1=new Users("weichen@gmail.com","1234","sun","weichen","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa");
+		Users u2=new Users("zhibo@gmail.com","1234","xie","zhibo","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa");
 
 		session.save(u1);
 		session.save(u2);

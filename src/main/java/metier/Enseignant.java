@@ -6,7 +6,7 @@ import java.util.Objects;
 import javax.persistence.Entity;
 
 @Entity (name="Enseignant")
-public class Enseignant extends users {
+public class Enseignant extends Users {
 	//priorite
 	private String bureauE;
 
