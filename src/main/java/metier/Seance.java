@@ -2,6 +2,7 @@ package metier;
 
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import javax.persistence.CascadeType;
@@ -23,15 +24,20 @@ public class Seance {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSeance;
+	
 	 @Column(name = "SalleS")
 	private String salleS;
+	 
 	 @Column(name = "DateS")
 	 @Temporal(TemporalType.DATE)
 	private Date dateS;
+	 
 	 @Column(name = "DureeS")
 	private double dureeS;
+	 
 	 @Column(name = "HeureS")
 	private String heureDebutS;
+	 
 	 @Column(name = "StatutS")
 	private StatutFicheAppel ficheAppelStatut;
 	
@@ -39,7 +45,7 @@ public class Seance {
 	
     @OneToMany(mappedBy = "seance",cascade = CascadeType.ALL)
     @MapKeyColumn(name = "CodeUt", updatable = false, insertable = false)
-    private HashMap<Utilisateurs,Participer> validerMap = new HashMap<>();
+    private Map<Utilisateurs,Participer> validerMap = new HashMap<>();
 
 
 
@@ -129,13 +135,13 @@ public class Seance {
 
 
 
-	public HashMap<Utilisateurs, Participer> getValiderMap() {
+	public Map<Utilisateurs, Participer> getValiderMap() {
 		return validerMap;
 	}
 
 
 
-	public void setValiderMap(HashMap<Utilisateurs, Participer> validerMap) {
+	public void setValiderMap(Map<Utilisateurs, Participer> validerMap) {
 		this.validerMap = validerMap;
 	}
 

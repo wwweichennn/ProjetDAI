@@ -30,9 +30,6 @@ import javax.persistence.Table;
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TypeU",discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("Utilisateur")
-
-
-
 public class Utilisateurs {
 
 	@Id
