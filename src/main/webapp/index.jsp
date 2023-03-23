@@ -21,7 +21,7 @@
 			<img src="img/bg.svg">
 		</div>
 		<div class="login-content">
-			<form method="get" action="CrtlLogin">
+			<form method="get" action="centrale">
 				<img src="img/ut1.png">
 				<h2 class="title">Bienvenue</h2>
            		<div class="input-div one">
