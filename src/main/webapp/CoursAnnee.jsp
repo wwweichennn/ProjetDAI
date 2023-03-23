@@ -44,5 +44,28 @@
        </ul>     
    </div>     
    <!-- /menu -->
+   <h1>Mes cours  2022-2023</h1>
+    <div class="wrapper">
+        <div class="search">
+            <input type="text" class="inp" placeholder="Rechercher">
+            <ul class="btn-list">
+                <li class="active" annee='all'>All</li>
+                <li annee='2023'>2022-2023</li>
+                <li annee='2022'>2021-2022</li>
+            </ul>
+        </div> 
+    </div>
+    
+    <div class="cours">
+     <ul>
+         <li><a href="">Agile</a></li>
+         <li><a href="">BPMN</a></li>
+         <li><a href="">Anglais</a></li>
+         
+     </ul>
+	</div>
+	
+    <script src="createStore.js"></script>
+    <script src="demo.js"></script>
 </body>
 </html>
