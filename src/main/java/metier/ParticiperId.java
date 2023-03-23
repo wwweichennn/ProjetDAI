@@ -1,6 +1,9 @@
 
 package metier;
 
+/**
+ * Clé composite
+ */
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -9,40 +12,41 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 public class ParticiperId implements Serializable {
-	@Column(name="CodeU")
-	private int codeUt;
-	@Column(name="CodeSea")
-	private int codeSea;
 	
-	public ParticiperId() {
+	//Propriétés
+	@Column(name="CodeU")
+	private int codeU;
+	
+	@Column(name="CodeSea")
+	private int idSea;
+	
+	public ParticiperId() {	}
+
+	public ParticiperId(int codeU, int idSea) {
 		
+		this.codeU = codeU;
+		this.idSea = idSea;
 	}
 
-	public ParticiperId(int codeUt, int codeSea) {
-		
-		this.codeUt = codeUt;
-		this.codeSea = codeSea;
+	public int getcodeU() {
+		return codeU;
 	}
 
-	public int getCodeUt() {
-		return codeUt;
+	public void setcodeU(int codeU) {
+		this.codeU = codeU;
 	}
 
-	public void setCodeUt(int codeUt) {
-		this.codeUt = codeUt;
+	public int getidSea() {
+		return idSea;
 	}
 
-	public int getCodeSea() {
-		return codeSea;
-	}
-
-	public void setCodeSea(int codeSea) {
-		this.codeSea = codeSea;
+	public void setidSea(int idSea) {
+		this.idSea = idSea;
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(codeSea, codeUt);
+		return Objects.hash(idSea, codeU);
 	}
 
 	@Override
@@ -54,11 +58,11 @@ public class ParticiperId implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ParticiperId other = (ParticiperId) obj;
-		return codeSea == other.codeSea && codeUt == other.codeUt;
+		return idSea == other.idSea && codeU == other.codeU;
 	}
 
 	@Override
 	public String toString() {
-		return "ParticiperId [codeUt=" + codeUt + ", codeSea=" + codeSea + "]";
+		return "ParticiperId [codeU=" + codeU + ", idSea=" + idSea + "]";
 	}}
 

@@ -3,16 +3,7 @@ package metier;
 import java.util.Date;
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
+import javax.persistence.*;
 
 import enumtype.StatutJustificatif;
 
@@ -20,42 +11,46 @@ import enumtype.StatutJustificatif;
 @Table(name = "Justificatifs")
 
 public class Justificatif {
+	
+	//Propriétés
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="CodeJ")
 	private int idJ;
-	@Column(name="Statut")
+	
+	@Column(name="StatutJ")
 	private StatutJustificatif statut;
+	
 	@Column(name="Pdf")
 	private String url;
+	
 	@Column(name="DateDebut")
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateDebut;
+	
 	@Column(name="DateFin")
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateFin;
 
-	//relation deposer
 
+	//relation deposer
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "CodeU")
     private Utilisateurs utilisateur;
 
+	
+	//Constructeurs
+	public Justificatif() {	}
 
-	public Justificatif() {
-
-	}
-
-	public Justificatif(String url, StatutJustificatif statut, Date dateDebut, Date dateFin, Utilisateurs utilisateur) {
+	public Justificatif (StatutJustificatif statut, String url,  Date dateDebut, Date dateFin, Utilisateurs utilisateur) {
+		this.statut = statut;
 		this.url = url;
-		this.statut=statut;
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
-		this.utilisateur=utilisateur;
+		this.utilisateur = utilisateur;
 	}
-
-
-
+	
+	//Getter & Setter
 	public Utilisateurs getUtilisateur() {
 		return utilisateur;
 	}
@@ -104,10 +99,7 @@ public class Justificatif {
 		this.dateFin = dateFin;
 	}
 
-
-
-
-
+	//Méthode
 	@Override
 	public int hashCode() {
 		return Objects.hash(dateDebut, dateFin, idJ, url, statut);
@@ -129,10 +121,5 @@ public class Justificatif {
 		return "Justificatif [idJ=" + idJ + ", statut=" + statut + ", pdf=" + url + ", dateDebut=" + dateDebut
 				+ ", dateFin=" + dateFin + "]";
 	}
-
-
-
-
-
 
 }

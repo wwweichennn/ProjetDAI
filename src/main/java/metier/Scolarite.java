@@ -10,54 +10,49 @@ import javax.persistence.Entity;
 
 public class Scolarite extends Utilisateurs{
 
-private String bureauS;
+	private String bureauS;
 
-public Scolarite() {
+	public Scolarite() {
 
-}
+	}
 
-public Scolarite( String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
-		String mailSupplement, String bureauS) {
-	super(sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);
-	this.bureauS=bureauS;
+	public Scolarite( String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
+			String mailSupplement, String bureauS) {
+		super(sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);
+		this.bureauS=bureauS;
 
-}
+	}
 
-public String getBureauS() {
-	return bureauS;
-}
+	public String getBureauS() {
+		return bureauS;
+	}
 
-public void setBureauS(String bureauS) {
-	this.bureauS = bureauS;
-}
+	public void setBureauS(String bureauS) {
+		this.bureauS = bureauS;
+	}
 
-@Override
-public int hashCode() {
-	final int prime = 31;
-	int result = super.hashCode();
-	result = prime * result + Objects.hash(bureauS);
-	return result;
-}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + Objects.hash(bureauS);
+		return result;
+	}
 
-@Override
-public boolean equals(Object obj) {
-	if (this == obj)
-		return true;
-	if (!super.equals(obj) || (getClass() != obj.getClass()))
-		return false;
-	Scolarite other = (Scolarite) obj;
-	return Objects.equals(bureauS, other.bureauS);
-}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Scolarite other = (Scolarite) obj;
+		return Objects.equals(bureauS, other.bureauS);
+	}
 
-@Override
-public String toString() {
-	return "Scolarite [bureauS=" + bureauS + "]";
-}
-
-
-
-
-
-
-
+	@Override
+	public String toString() {
+		return "Scolarite [nom " + this.getNom() + " prenom " + this.getPrenom() + "bureauS=" + bureauS + "]";
+	}
 }

@@ -1,6 +1,6 @@
 package metier;
 
-import java.util.Objects;
+import java.util.*;
 
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -14,35 +14,19 @@ import enumtype.Parcours;
 public class Etudiant extends Utilisateurs{
 
 	//proprietes
-
-	
-	private Parcours parcour;
+	private Parcours parcours;
 	private Formations formation;
 
-	//Relation deposer
-
-//commmmemmemmmemmeemmme
-
 	//constructeur
-
 	public Etudiant() {
-
+		super();
 	}
 
 	public Etudiant(String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
-		String mailSupplement, Parcours parcour, Formations formation) {
+			String mailSupplement, Parcours parcours, Formations formation) {
 		super(sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);
 		this.formation=formation;
-		this.parcour=parcour;
-
-	}
-
-	public Parcours getParcour() {
-		return parcour;
-	}
-
-	public void setParcour(Parcours parcour) {
-		this.parcour = parcour;
+		this.parcours=parcours;
 	}
 
 	public Formations getFormation() {
@@ -53,11 +37,19 @@ public class Etudiant extends Utilisateurs{
 		this.formation = formation;
 	}
 
+	public Parcours getParcours() {
+		return parcours;
+	}
+
+	public void setParcours(Parcours parcours) {
+		this.parcours = parcours;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + Objects.hash(formation, parcour);
+		result = prime * result + Objects.hash(formation, parcours);
 		return result;
 	}
 
@@ -68,12 +60,12 @@ public class Etudiant extends Utilisateurs{
 		if (!super.equals(obj) || (getClass() != obj.getClass()))
 			return false;
 		Etudiant other = (Etudiant) obj;
-		return formation == other.formation && parcour == other.parcour;
+		return formation == other.formation && parcours == other.parcours;
 	}
 
 	@Override
 	public String toString() {
-		return "Etudiant [parcour=" + parcour + ", formation=" + formation + "]";
+		return "Etudiant [nom " + this.getNom() + " prenom " + this.getPrenom() + " parcours = " + parcours + ", formation=" + formation + "]";
 	}
 
 

@@ -16,34 +16,31 @@ import enumtype.StatutAppel;
 @Entity
 @Table(name="Participer")
 public class Participer {
-	
+
+	//Propriétés
 	@EmbeddedId
 	private ParticiperId idP;
+
 	@Column(name="StatutP")
 	private StatutAppel statut;
-	
-	
+
+
 	//relation vers Utilisateur
-	   @ManyToOne
-	    @JoinColumn(name = "CodeU", insertable = false,updatable = false)
-	    private Utilisateurs utilisateur;
-	
+	@ManyToOne
+	@JoinColumn(name = "CodeU", insertable = false,updatable = false)
+	private Utilisateurs utilisateur;
+
 	//Relation vers Seance
-	   @ManyToOne
-	    @JoinColumn(name = "CodeSea", insertable = false,updatable = false)
-	    private Seance seance;
-	   
-	   
-	   
-	   public Participer () {
-		   
-	   }
+	@ManyToOne
+	@JoinColumn(name = "CodeSea", insertable = false,updatable = false)
+	private Seance seance;
+
+	public Participer () {	}
 
 	public Participer(ParticiperId idP, StatutAppel statut) {
-		
 		this.idP = idP;
 		this.statut = statut;
-		
+
 	}
 
 	public ParticiperId getIdP() {
@@ -101,10 +98,10 @@ public class Participer {
 		return "Participer [idP=" + idP + ", statut=" + statut + ", utilisateur=" + utilisateur + ", seance=" + seance
 				+ "]";
 	}
-	
-	
-	   
-	   
-	
+
+
+
+
+
 }
 

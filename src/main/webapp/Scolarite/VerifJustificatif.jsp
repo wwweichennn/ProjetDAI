@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@page import="metier.Etudiant" %>
+<%@page import="metier.*" %>
 <%@page import="java.util.ArrayList" %>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             <% 
-                for (Etudiant etudiant : (ArrayList<Etudiant>) request.getAttribute("etudiants")) {
+                for (Utilisateurs etudiant : (ArrayList<Utilisateurs>) request.getAttribute("listeAbs")) {
             %>
                 <tr>
                     <td><%= etudiant.getNom() %></td>
