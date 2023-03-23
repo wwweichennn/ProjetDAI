@@ -1,5 +1,5 @@
 
-<%@page import="metier.Users"%>
+<%@page import="metier.users"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,9 +11,45 @@
 
 <title>Accueil_Enseignant</title>
 </head>
-<body background="1.jpg" background-size=50%;>
+<body>
+	<!-- menu -->
+	<div class="menu">   
+       <ul>    
+       	  <li >   
+           	   <img src="img/logo-ut1.png" class="logo-ut1"/>   
+           </li>     
+           <div class="accueil"><li>    
+               <a href="webapp.EmploiDuTemps">Accueil</a>     
+           </div></li>     
+           <li class="cours">
+           	 <a href="#">Mes cours</a>    
+              <ul>     
+                   <li>     
+                       <a href="">2022-2023</a>     
+                   </li>     
+                   <li>     
+                       <a href="">2021-2022</a>     
+                   </li>     
+               </ul>           
+           </li>  
+        
+           <div class="compte"><li>
+           	 <a href="#">Mon Compte</a>    
+              <ul>     
+                   <li>     
+                       <a href="">Mes informations</a>     
+                   </li>     
+                   <li>     
+                      Déconnextion  
+                   </li>     
+               </ul>           
+           </div></li>     
+       </ul>     
+   </div>     
+   <!-- /menu -->
 <div class="parent"> 
 	<div class="div1"> 
+		
 		<h1>Bienvenue de nouveau,</h1>
 		<h2>Mes Emploi du Temps</h2>
 		<h3>Semestre 1 week : 20/03/2023-26/03/2023</h3>
@@ -24,7 +60,7 @@
   
 	    <thead>  
 	    		<td>      </td>           
-	            <td>Lundi</td>
+	            <td>Lundi<div class="date">20/03/2023</div></td>
 	            <td>Mardi</td>
 	            <td>Mercredi</td>
 	            <td>Jeudi</td>
@@ -38,7 +74,7 @@
 	        <%--boucle de seance --%>
 	        <tr>
 	          <td class="heure">8:00-9:30</td>
-	          <td class=course>CM Recueil des besoins Agile</td>
+	          <td class=course><a href="url">CM Recueil des besoins Agile</a><div class="salle">ME405</div></td>
 	          <td class=course>CM Données, intégration, analyse</td>
 	          <td class=course></td>
 	          <td class=course>CM Démarche de développement agile</td>

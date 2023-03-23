@@ -10,13 +10,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+<%
+        String email_Erreur = request.getAttribute("email_error") == null ? "" : (String) request.getAttribute("email_error");
+        String password_Erreur = request.getAttribute("password_error") == null ? "" : (String) request.getAttribute("password_error");
+        String generale_Erreur = request.getAttribute("generale_error") == null ? "" : (String) request.getAttribute("generale_error");
+    %>
 	<img class="wave" src="img/wave.png">
 	<div class="container">
 		<div class="img">
 			<img src="img/bg.svg">
 		</div>
 		<div class="login-content">
-			<form action="index.html">
+			<form method="get" action="CrtlLogin">
 				<img src="img/ut1.png">
 				<h2 class="title">Bienvenue</h2>
            		<div class="input-div one">
@@ -25,7 +30,7 @@
            		   </div>
            		   <div class="div">
            		   		<h5>Email</h5>
-           		   		<input type="text" class="input">
+           		   		<input type="email" class="input"  name="email">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -34,20 +39,17 @@
            		   </div>
            		   <div class="div">
            		    	<h5>Password</h5>
-           		    	<input type="password" class="input">
+           		    	<input type="password" class="input" name="password">
             	   </div>
-            	   
+            	   <%= email_Erreur %>
+            	   <%= password_Erreur %>
+            	   <%= generale_Erreur %>
             	</div>
             	<br/>
             
-            	<input type="button" class="role" value="Scolarité">
-     			<input type="button" class="role" value="Enseignant">
-     			<input type="button" class="role" value="Etudiant">
-      			
-      			
       			<br/>
             	<a href="#">forget password?</a>
-            	<input type="submit" class="btn" value="login">
+            	<input type="submit" class="btn" value="login" >
             </form>
         </div>
     </div>

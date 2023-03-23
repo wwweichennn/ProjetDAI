@@ -2,6 +2,7 @@ package crtl;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.TreeMap;
 
 import javax.servlet.ServletException;
@@ -10,10 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import livredor.bd.Bd;
-import livredor.bd.ExceptionLivreDor;
-import livredor.metier.MessageDor;
-import livredor.metier.Util;
+import bd.bd2;
+import metier.Users;
 
 /**
  * Servlet implementation class centrale
@@ -23,90 +22,64 @@ public class centrale extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String action = request.getParameter("type_action");
-		String url;
+	
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 
-		// --> Démarrage de l'application ou retour !
-		if (action ==  null)
-			url = "LeLivreDor";
-		else
-			{
-			switch (action)
-				{
-				case "Saisir":
-					url = "SaisirMessage";
-					break;
-
-				case "Modifier":
-					try {
-						url="ModifierMessage";
-						request.setAttribute("message", Bd.lireMessage(request.getParameter("id")));
-						}
-					catch (ExceptionLivreDor ex)
-						{
-						url = "LeLivreDor";
-						request.setAttribute("msg_erreur", ex.getMessage());
-						}
-					break;
-
-				case "Afficher":
-					try {
-						url = "LireMessage";
-						request.setAttribute("liste", Bd.lireMessages());
-						}
-					catch (ExceptionLivreDor e)
-						{
-						url = "LeLivreDor";
-						request.setAttribute("msg_erreur", e.getMessage());
-						}
-					break;
-
-				case "Supprimer":
-					try {
-						/*----- Partie pour affichage JSP -----*/
-						url = "ChoisirSupprMessage";
-						request.setAttribute("liste", Bd.lireMessages());
-
-						/*----- Partie affichage JSTL -----*/
-						/*
-						 * Le modèle est plus proche du MVC.
-						 */
-						ArrayList<MessageDor> lt = Bd.lireMessages();
-						String[] t = (String[])request.getSession().getAttribute("liste_suppr");
-
-						TreeMap<MessageDor,String> tmap= new TreeMap<>();
-
-						lt.forEach((msg) -> { tmap.put(msg, Util.isChecked(t, msg.getId())); });
-
-						request.setAttribute("liste_triee", tmap);
-						}
-					catch (ExceptionLivreDor e)
-						{
-						url = "LeLivreDor";
-						request.setAttribute("msg_erreur", e.getMessage());
-						}
-					break;
-
-				case "Annuler":
-					/*----- Suppression d'un élément en session -----*/
-					request.getSession().removeAttribute("liste_suppr"); // après type_action=Annuler
-				case "Retour": ;
-
-				default:
-					url = "LeLivreDor";
+		if(email == null && password == null) {
+			request.setAttribute("email_error", "Veillez entrer l'addresse email");
+			request.setAttribute("password_error", "Veillez entrer un mot de passe");
+			request.getRequestDispatcher("index").forward(request, response);
+			
+		}
+		else if (email == null || email.isEmpty()) {
+			request.setAttribute("email_error", "Veillez entrer l'addresse email");
+			request.getRequestDispatcher("index").forward(request, response);
+		}
+		else if (password == null || password.isEmpty()) {
+			request.setAttribute("password_error", "Veillez entrer un mot de passe");
+			request.getRequestDispatcher("index").forward(request, response);
+		}
+		else  {
+			try {
+				Users users = bd2.loginUtilisateur(email, password);
+	
+				if (users == null) {
+					request.setAttribute("generale_error", "Email ou mot de passe incorrect ! Veuillez réessayer !");
+					request.getRequestDispatcher("index").forward(request, response);
 				}
+				else  {
+					request.getSession().setAttribute("id", users.getCodeU());
+					request.getSession().setAttribute("email", users.getIdentifiant());
+					request.getSession().setAttribute("nom", users.getNom());
+					request.getSession().setAttribute("prenom", users.getPrenom());
+					request.getSession().setAttribute("Type", bd2.consulterType(users.getCodeU()));
+					request.getSession().setAttribute("mailSup", users.getMailSupplement());
+					request.getSession().setAttribute("photo", users.getPhoto());
+					
+					if(bd2.consulterType(users.getCodeU()) == "Enseignant") {
+						request.getRequestDispatcher("emploiDuTemps").forward(request, response);
+						}
+				
+				}
+				
+				}
+		 catch (Exception e) {
+				e.printStackTrace();
+				request.setAttribute("generale_error", "Probleme technique ! Veuillez contacter l'administrateur.");
+				request.getRequestDispatcher("index").forward(request, response);
 			}
 
-		// Chainage.
-		request.getRequestDispatcher(url).forward(request, response);
+		}
 	}
+		
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+
+		
 	}
 
 }
