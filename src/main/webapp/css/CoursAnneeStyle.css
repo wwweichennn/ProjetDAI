@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+ /* menu*/
+.menu{  
+	height: 60px;
+    margin: auto;
+    border-radius: 10px;
+    background-color: #dc0713;
+    box-shadow: 1px 1px 33px #fff;
+}     
+.menu ul li     
+{     
+    width:160px; height:60px;     
+    list-style:none;/*去掉圆点*/     
+    float:left;/*水平显示*/     
+    color:white;/* #fff */     
+    font-size:18px;     
+    font-family:Frutiger;     
+    text-align:center;     
+    line-height:60px;/* 行高跟 高度一致时，竖直居中*/     
+    border-right:1px solid #f3fae3/*右边框*/     
+}
+   
+.menu ul li a     
+{     
+    color:white;/* #fff */         
+    font-family:Frutiger;     
+    text-decoration:none;     
+}     
+     
+.menu ul li.last:hover     
+{     
+    border-radius:0px 10px 10px 0px;/*右上 右下 圆弧显示 */     
+}     
+.menu ul li ul li      
+{     
+	
+    border: none;
+    border-top: 2px solid #dc7676bd;
+    background: rgb(237 57 57 / 92%);
+    border-radius: 10px;
+    float:right; 
+    width:160px; 
+    height:45px;  
+    line-height:45px;
+    font-size:18px;
+}     
+.menu ul li ul     
+{     
+    display:none;/*不显示*/     
+}          
+.menu ul li:hover ul     
+{     
+    display:block;     
+  
+} 
+.menu li:hover{
+    background-color: #ff8c76;
+    color: white;
+    font-size:19px;
+    
+}
+.compte{
+    float:right;
+}
+
+/*image*/
+.logo-ut1{
+	position:relative; 
+	height:60px;
+	left:-15px;
+	border-radius: 10px;   
+}

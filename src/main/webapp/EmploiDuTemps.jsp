@@ -1,5 +1,3 @@
-
-
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -11,7 +9,8 @@
 
 <title>Accueil_Enseignant</title>
 </head>
-<body background="1.jpg" background-size=50%;>
+<body>
+	<!-- menu -->
 	<div class="menu">   
        <ul>    
        	  <li >   
@@ -45,6 +44,7 @@
            </div></li>     
        </ul>     
    </div>     
+   <!-- /menu -->
 <div class="parent"> 
 	<div class="div1"> 
 		

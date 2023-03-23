@@ -142,7 +142,7 @@ a{
 }     
 .menu ul li     
 {     
-    width:150px; height:60px;     
+    width:160px; height:60px;     
     list-style:none;/*去掉圆点*/     
     float:left;/*水平显示*/     
     color:white;/* #fff */     
@@ -172,9 +172,9 @@ a{
     background: rgb(237 57 57 / 92%);
     border-radius: 10px;
     float:right; 
-    width:150px; 
-    height:40px;  
-    line-height:40px;
+    width:160px; 
+    height:45px;  
+    line-height:45px;
     font-size:18px;
 }     
 .menu ul li ul     
@@ -189,7 +189,7 @@ a{
 .menu li:hover{
     background-color: #ff8c76;
     color: white;
-    font-size:20px;
+    font-size:19px;
     
 }
 .compte{
