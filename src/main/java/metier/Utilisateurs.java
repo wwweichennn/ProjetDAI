@@ -62,9 +62,9 @@ public class Utilisateurs {
 	
 	//relation Particper
 	
-	  @OneToMany(mappedBy = "utilisateur",cascade = CascadeType.ALL)
-	    @MapKeyColumn(name = "CodeSea", updatable = false, insertable = false)
-	    private Map<Seance,Participer> validerMapS = new HashMap<>();
+//	  @OneToMany(mappedBy = "utilisateur",cascade = CascadeType.ALL)
+//	    @MapKeyColumn(name = "CodeSea", updatable = false, insertable = false)
+//	    private Map<Seance,Participer> validerMapS = new HashMap<>();
 	
 	
 	public Utilisateurs() {
