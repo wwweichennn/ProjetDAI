@@ -96,6 +96,7 @@ public class TestHibernate {
 			t.commit();
 		}
 	}
+	
 
 
 	public static void main(String[] args) {
