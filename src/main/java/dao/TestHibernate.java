@@ -10,6 +10,10 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import metier.Cours;
+import metier.Enseignant;
+import metier.Etudiant;
+import metier.Justificatif;
+import metier.Seance;
 import metier.Users;
 
 
@@ -30,7 +34,6 @@ public class TestHibernate
 	/**
 	 * Création, enregistrement et lecture d'objets.
 	 */
-
 	/*----- Création et enregistrement d'employés -----*/
 	public static void createCours ()
 		{
@@ -62,7 +65,11 @@ public class TestHibernate
 			session.save(c9);
 			session.save(c10);
 
-
+			Users u1 =  session.get(Users.class, 1);
+			Users u2 =  session.get(Users.class, 2);
+			
+			u1.ajouteCours(c6);
+			u2.ajouteCours(c1);
 			
 			t.commit();
 			session.close();
@@ -77,24 +84,114 @@ public class TestHibernate
 		/*----- Ouverture d'une transaction -----*/
 		Transaction t = session.beginTransaction();
 
-		Users u1=new Users("weichen@gmail.com","1234","sun","weichen","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa");
-		Users u2=new Users("zhibo@gmail.com","1234","xie","zhibo","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa");
+		Enseignant u1=new Enseignant("weichen@gmail.com","1234","sun","weichen","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa","MF201");
+		Enseignant u2=new Enseignant("zhibo@gmail.com","1234","xie","zhibo","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa","MF202");
+
+		Etudiant u3=new Etudiant("weichen@gmail.com","1234","Ma","rong","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa","IPM","FI");
+		Etudiant u4=new Etudiant("zhibo@gmail.com","1234","abc","def","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa","IPM","FA");
+
+		Users u5=new Users("weichen@gmail.com","1234","zzz","rrr","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa");
+		Users u6=new Users("zhibo@gmail.com","1234","ppp","vvv","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa");
 
 		session.save(u1);
 		session.save(u2);
+		session.save(u3);
+		session.save(u4);
+		session.save(u5);
+		session.save(u6);
 	
 		t.commit();
 		session.close();
 		}
 	}
+	public static void createSeance () throws ParseException
+	{
+	/*----- Ouverture de la session -----*/
+	try (Session session = HibernateUtil.getSessionFactory().getCurrentSession())
+		{
+		/*----- Ouverture d'une transaction -----*/
+		Transaction t = session.beginTransaction();
+		
+		Users u1 =  session.get(Users.class, 1);
+		Cours c1 =  session.get(Cours.class, 1);
+		Users u2 =  session.get(Users.class, 2);
+		Cours c2 =  session.get(Cours.class, 2);
+		
+		Seance s1= new Seance("Me401",DFDATE.parse("04-01-2023"),90,DF.parse("04-04-1998 09:00:00"),"validé",u1,c1);
+		Seance s2= new Seance("Me401",DFDATE.parse("04-01-2023"),18,DF.parse("04-04-1998 14:00:00"),"validé",u1,c1);
+		Seance s3= new Seance("Me401",DFDATE.parse("05-01-2023"),90,DF.parse("04-04-1998 09:00:00"),"validé",u2,c2);
+		
+		session.save(s1);
+		session.save(s2);
+		session.save(s3);
+		
+		t.commit();
+		session.close();
+		
+		}
+	
+	}
+	public static void createParticipe () throws ParseException
+	{
+	/*----- Ouverture de la session -----*/
+	try (Session session = HibernateUtil.getSessionFactory().getCurrentSession())
+		{
+		/*----- Ouverture d'une transaction -----*/
+		Transaction t = session.beginTransaction();
+		
+		Users u3 =  session.get(Users.class, 1);
+		Users u4 =  session.get(Users.class, 2);
 
+		
+		Seance s1= session.get(Seance.class, 1);
+		Seance s2= session.get(Seance.class, 2);
+		Seance s3= session.get(Seance.class, 3);
+		
+		u3.participe(s3, "present");
+		u4.participe(s1, "absent");
+		u4.participe(s2, "present");
+		
+		t.commit();
+		session.close();
+		
+		}
+	
+	}
+	public static void createDeposerJus () throws ParseException
+	{
+	/*----- Ouverture de la session -----*/
+	try (Session session = HibernateUtil.getSessionFactory().getCurrentSession())
+		{
+		/*----- Ouverture d'une transaction -----*/
+		Transaction t = session.beginTransaction();
+		
+		Users u3 =  session.get(Users.class, 1);
+	
+
+		Justificatif j1=new Justificatif(false,"www",DFDATE.parse("04-01-2023"),DFDATE.parse("05-01-2023"),u3);
+
+		u3.getJustificatifs().add(j1);
+		session.save(j1);
+		
+		t.commit();
+		session.close();
+		
+		}
+	
+	}
 	/**
 	 * Programme de test.
 	 */
 	public static void main(String[] args) throws ParseException
 		{
-		TestHibernate.createCours();
+		
 		TestHibernate.createUsers();
+		TestHibernate.createCours();
+		TestHibernate.createSeance();
+		TestHibernate.createParticipe();
+		TestHibernate.createDeposerJus();
+		
+		
 		}
 
 

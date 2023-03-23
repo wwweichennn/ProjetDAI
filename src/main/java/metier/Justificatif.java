@@ -40,28 +40,17 @@ public class Justificatif implements Serializable {
 	 * Relations.
 	 */	
 	
-	/*----- DEPOSER -----*/
+	//DEPOSER
 	@ManyToOne(fetch =  FetchType.EAGER)
 	@JoinColumn(name="CodeU")
 	private Users users;
-
-	public Users getUsersJustificatif() {
-		return users;
-	}
-
-	public void setUsersJustificatif(Users users) {
-		this.users = users;
-	}
 	
-	
-	public Justificatif() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
 
 	/**
 	 * Constructeurs.
 	 */
+	public Justificatif() {}
 
 	public Justificatif(boolean validation, String url, Date dateDeb, Date dateFin, Users users) {
 		super();
@@ -72,46 +61,18 @@ public class Justificatif implements Serializable {
 		this.users = users;
 	}
 	
-	public int getCodeJust() {
-		return CodeJ;
-	}
-
-	public void setCodeJust(int codeJ) {
-		CodeJ = codeJ;
-	}
-
-	public boolean isValidation() {
-		return validation;
-	}
-
-	public void setValidation(boolean validation) {
-		this.validation = validation;
-	}
-
-	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	public Date getDateDeb() {
-		return dateDeb;
-	}
-
-	public void setDateDeb(Date dateDeb) {
-		this.dateDeb = dateDeb;
-	}
-
-	public Date getDateFin() {
-		return dateFin;
-	}
-
-	public void setDateFin(Date dateFin) {
-		this.dateFin = dateFin;
-	}
-
+	public int getCodeJust() {return CodeJ;}
+	public void setCodeJust(int codeJ) {CodeJ = codeJ;}
+	public boolean isValidation() {return validation;}
+	public void setValidation(boolean validation) {this.validation = validation;}
+	public String getUrl() {return url;}
+	public void setUrl(String url) {this.url = url;}
+	public Date getDateDeb() {return dateDeb;}
+	public void setDateDeb(Date dateDeb) {this.dateDeb = dateDeb;}
+	public Date getDateFin() {return dateFin;}
+	public void setDateFin(Date dateFin) {this.dateFin = dateFin;}
+	public Users getUsersJustificatif() {return users;}
+	public void setUsersJustificatif(Users users) {this.users = users;}
 	@Override
 	public int hashCode() {
 		return Objects.hash(CodeJ);
@@ -128,15 +89,10 @@ public class Justificatif implements Serializable {
 		Justificatif other = (Justificatif) obj;
 		return CodeJ == other.CodeJ;
 	}
-
 	@Override
 	public String toString() {
-		return "Justificatif [Code=" + CodeJ + ", validation=" + validation + ", url=" + url + ", dateDeb="
-				+ dateDeb + ", dateFin=" + dateFin + ", users=" + users + "]";
+		return "Justificatif [CodeJ=" + CodeJ + ", validation=" + validation + ", url=" + url + ", dateDeb=" + dateDeb
+				+ ", dateFin=" + dateFin + ", users=" + users + "]";
 	}
 	
-	  
-
-
-
 }

@@ -3,11 +3,15 @@ package metier;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-@Entity (name="Scolarite")
+@Entity
+@DiscriminatorValue("Scolarite")
 public class Scolarite extends Users{
 	//priorite
+	@Column(name="bureauS")
 	private String bureauS;
 
 	//Constructeur
@@ -48,11 +52,4 @@ public class Scolarite extends Users{
 	public String toString() {
 		return "Scolarite [bureauS=" + bureauS + "]";
 	}
-	
-	
-	
-	
-	
-	
-	
 }

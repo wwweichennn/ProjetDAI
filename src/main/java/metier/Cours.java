@@ -1,13 +1,24 @@
 package metier;
 
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.MapKeyJoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+
 @Entity
 @Table(name = "Cours")
 
@@ -22,10 +33,16 @@ public class Cours {
 	private String nomCours;
 	
 	
-	public Cours() {
-		super();
-	}
-
+	/*----- enseigner -----*/	
+	@ManyToMany(mappedBy = "cours")
+	private Set<Users> users = new HashSet(0);
+	
+	//--------appartenir-----------
+	@OneToMany(mappedBy="cours",cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	private Set<Seance> seances = new HashSet<>(0);
+	
+	
+	public Cours() {}
 
 	public Cours(String nomCours) {
 		super();
@@ -33,31 +50,31 @@ public class Cours {
 	}
 
 
-	public int getIdCours() {
-		return idCours;
+
+	public Set<Users> getUsers() {
+		return users;
 	}
 
-
-	public void setIdCours(int idCours) {
-		this.idCours = idCours;
+	public void setUsers(Set<Users> users) {
+		this.users = users;
 	}
 
-
-	public String getNomCours() {
-		return nomCours;
+	public Set<Seance> getSeances() {
+		return seances;
 	}
 
-
-	public void setNomCours(String nomCours) {
-		this.nomCours = nomCours;
+	public void setSeances(Set<Seance> seances) {
+		this.seances = seances;
 	}
 
+	public int getIdCours() {return idCours;}
+	public void setIdCours(int idCours) {this.idCours = idCours;}
+	public String getNomCours() {return nomCours;}
+	public void setNomCours(String nomCours) {this.nomCours = nomCours;}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(idCours, nomCours);
-	}
-
+		return Objects.hash(idCours, nomCours);}
 
 	@Override
 	public boolean equals(Object obj) {
@@ -68,15 +85,11 @@ public class Cours {
 		if (getClass() != obj.getClass())
 			return false;
 		Cours other = (Cours) obj;
-		return idCours == other.idCours && Objects.equals(nomCours, other.nomCours);
-	}
-
+		return idCours == other.idCours && Objects.equals(nomCours, other.nomCours);}
 
 	@Override
 	public String toString() {
-		return "Cours [idCours=" + idCours + ", nomCours=" + nomCours + "]";
-	}
-
+		return "Cours [idCours=" + idCours + ", nomCours=" + nomCours + "]";}
 	
-
 }
+

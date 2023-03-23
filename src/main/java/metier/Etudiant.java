@@ -3,14 +3,19 @@ package metier;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-@Entity (name="Etudiant")
+@Entity
+@DiscriminatorValue("Etudiant")
 public class Etudiant extends Users {
 	//priorite
+	@Column(name="parcours")
 	private String parcours;
-	private String formation;
 	
+	@Column(name="formation")
+	private String formation;
 	
 	//Constructeur
 	public Etudiant() {}
@@ -52,12 +57,4 @@ public class Etudiant extends Users {
 	public String toString() {
 		return "Etudiant [parcours=" + parcours + ", formation=" + formation + "]";
 	}
-	
-	
-
-	
-	
-
-	
-	
-}
+	}

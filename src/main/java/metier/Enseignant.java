@@ -3,16 +3,19 @@ package metier;
 import java.util.Date;
 import java.util.Objects;
 
+import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-@Entity (name="Enseignant")
+@Entity
+@DiscriminatorValue("Enseignant")
 public class Enseignant extends Users {
 	//priorite
+	@Column(name="bureauE")
 	private String bureauE;
 
 	//Constructeur
-	public Enseignant() {
-	}
+	public Enseignant() {}
 
 	public Enseignant(String identifiant, String motDePasse, String nom, String prenom, String sexe, Date dateNaissance,
 			String mailSupplement, String photo, String bureauE) {

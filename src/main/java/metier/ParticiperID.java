@@ -15,31 +15,16 @@ public class ParticiperID implements Serializable{
 	@Column(name = "CodeSeance")
 	private int codeS;
 
-	public ParticiperID() {
-		super();
-	}
-
+	public ParticiperID() {}
 	public ParticiperID(int codeU, int codeS) {
 		super();
 		this.codeU = codeU;
-		this.codeS = codeS;
-	}
-
-	public int getCodeU() {
-		return codeU;
-	}
-
-	public void setCodeU(int codeU) {
-		this.codeU = codeU;
-	}
-
-	public int getCodeS() {
-		return codeS;
-	}
-
-	public void setCodeS(int codeS) {
-		this.codeS = codeS;
-	}
+		this.codeS = codeS;}
+	
+	public int getCodeU() {return codeU;}
+	public void setCodeU(int codeU) {this.codeU = codeU;}
+	public int getCodeS() {return codeS;}
+	public void setCodeS(int codeS) {this.codeS = codeS;}
 
 	@Override
 	public int hashCode() {
