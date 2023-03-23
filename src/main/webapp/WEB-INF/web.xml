@@ -12,10 +12,23 @@
 		<jsp-file>/Scolarite/AcceuilScolarite.jsp</jsp-file>
 	</servlet>
 
+<servlet>
+		<servlet-name>AcceuilEtudiant</servlet-name>
+		<jsp-file>/Etudiant/AcceuilEtudiant.jsp</jsp-file>
+	</servlet>
 
 	<servlet>
 		<servlet-name>verifJustif</servlet-name>
 		<jsp-file>/Scolarite/VerifJustificatif.jsp</jsp-file>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>modifierprofil</servlet-name>
+		<jsp-file>/Etudiant/ModifProfil.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>consulterAbs</servlet-name>
+		<jsp-file>/Etudiant/ConsultAbs.jsp</jsp-file>
 	</servlet>
 
 	<!-- Donner un alias -->
@@ -23,10 +36,22 @@
 		<servlet-name>accueil</servlet-name>
 		<url-pattern>/Accueil</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AcceuilEtudiant</servlet-name>
+		<url-pattern>/AcceuilEtudiant</url-pattern>
+	</servlet-mapping>
 
 	<servlet-mapping>
 		<servlet-name>verifJustif</servlet-name>
 		<url-pattern>/Verification</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>consulterAbs</servlet-name>
+		<url-pattern>/consulterAbs</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>modifierprofil</servlet-name>
+		<url-pattern>/modifierprofil</url-pattern>
 	</servlet-mapping>
 
 	<!-- -->

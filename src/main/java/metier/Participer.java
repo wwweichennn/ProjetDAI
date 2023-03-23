@@ -8,11 +8,13 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import enumtype.StatutAppel;
 
 
 @Entity
+@Table(name="Participer")
 public class Participer {
 	
 	@EmbeddedId
@@ -37,12 +39,11 @@ public class Participer {
 		   
 	   }
 
-	public Participer(ParticiperId idP, StatutAppel statut, Utilisateurs utilisateur, Seance seance) {
+	public Participer(ParticiperId idP, StatutAppel statut) {
 		
 		this.idP = idP;
 		this.statut = statut;
-		this.utilisateur = utilisateur;
-		this.seance = seance;
+		
 	}
 
 	public ParticiperId getIdP() {

@@ -153,8 +153,18 @@ public class Utilisateurs {
 	public void setMailSupplement(String mailSupplement) {
 		this.mailSupplement = mailSupplement;
 	}
+	
+	
 
 
+
+	public Map<Seance, Participer> getValiderMapSeance() {
+		return validerMapSeance;
+	}
+
+	public void setValiderMapSeance(Map<Seance, Participer> validerMapSeance) {
+		this.validerMapSeance = validerMapSeance;
+	}
 
 	@Override
 	public int hashCode() {

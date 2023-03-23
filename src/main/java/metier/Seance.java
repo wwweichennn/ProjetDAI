@@ -26,16 +26,16 @@ public class Seance {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="CodeSea")
 	private int idSeance;
-	 @Column(name = "SalleS")
+	@Column(name = "SalleS")
 	private String salleS;
-	 @Column(name = "DateS")
-	 @Temporal(TemporalType.DATE)
+	@Column(name = "DateS")
+	@Temporal(TemporalType.DATE)
 	private Date dateS;
-	 @Column(name = "DureeS")
+	@Column(name = "DureeS")
 	private double dureeS;
-	 @Column(name = "HeureS")
+	@Column(name = "HeureS")
 	private String heureDebutS;
-	 @Column(name = "StatutS")
+	@Column(name = "StatutS")
 	private StatutFicheAppel ficheAppelStatut;
 	
 
@@ -43,7 +43,7 @@ public class Seance {
  @OneToMany(mappedBy = "seance",cascade = CascadeType.ALL)
  @MapKeyColumn(name = "CodeU", updatable = false, insertable = false)
    private Map<Utilisateurs,Participer> validerMapUtilisateur = new HashMap<>();
-//
+
 
 public Seance () {
 	
@@ -134,7 +134,7 @@ public Seance () {
 
 
 
-	public HashMap<Utilisateurs, Participer> getValiderMapUtilisateur() {
+	public Map<Utilisateurs, Participer> getValiderMapUtilisateur() {
 		return validerMapUtilisateur;
 	}
 

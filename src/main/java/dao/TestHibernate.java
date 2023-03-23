@@ -11,6 +11,7 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import org.hibernate.query.Query;
+import org.hibernate.resource.transaction.spi.TransactionStatus;
 
 import javax.persistence.*;
 import java.util.*;
@@ -21,6 +22,7 @@ import enumtype.Parcours;
 import metier.Etudiant;
 import metier.Justificatif;
 import metier.Scolarite;
+import metier.Users;
 import metier.Utilisateurs;
 
 
@@ -78,26 +80,39 @@ public class TestHibernate {
 	public static void loadEtudiant() {
 
 
-		try (Session session=HibernateUtil.getSessionFactory().getCurrentSession()){
+	
 			/* transaction*/
-			Transaction t = session.beginTransaction();
+		
+			List<Etudiant> etudiants = new ArrayList<>();
 
 
+			String  hql = "FROM Etudiant u left join u.justificatifs as j where j.statut = 1 and parcour=0" ;		//Requete pour recupérer les étudiants
 
-			String  hql = "FROM Utilisateurs u left join u.justificatifs as j where j.statut = 1 and parcour=0" ;		//Requete pour recupérer les étudiants
+			try (Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
+				Transaction t = session.getTransaction();
+		      
+		            t = session.beginTransaction();
+		            
+	            Query<Etudiant>query = session.createQuery(hql);
+	        
+	            
+	            if (!query.getResultList().isEmpty()) {
+	            	etudiants=query.list();
+	            	for(Etudiant e :query.list()) {
+	            		System.out.println(e.getId());
+	            	}
 
-			Query<Etudiant>query = session.createQuery(hql);
-
-			List<Etudiant>  etudiants = query.list();		//recupere le résultat de la requete
-
-
-			//for (Justificatif e : etudiants) {
-				System.out.println(etudiants.size());
-			//}
-
-			t.commit();}
+	            	}
+	            t.commit();
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	        }
+	        
+			
 		}
 	
+
+		
 	
 	public void createSeance() {
 		
