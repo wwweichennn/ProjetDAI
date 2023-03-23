@@ -27,7 +27,7 @@ import metier.Utilisateurs;
 public class TestHibernate {
 
 	//constante de classe pour les dates
-		private static final SimpleDateFormat DF = new SimpleDateFormat("dd-mm-yyyy");
+	private static final SimpleDateFormat DF = new SimpleDateFormat("dd-mm-yyyy");
 
 	public static void createUtilisateur() {
 		try (Session session=HibernateUtil.getSessionFactory().getCurrentSession()){
@@ -76,35 +76,40 @@ public class TestHibernate {
 	}
 
 	public static void loadEtudiant() {
-		
-		
+
+
 		try (Session session=HibernateUtil.getSessionFactory().getCurrentSession()){
 			/* transaction*/
 			Transaction t = session.beginTransaction();
-		
 
+
+<<<<<<< HEAD
 			String  hql = "FROM Utilisateurs u left join u.justificatifs where j.statut and parcours=0";
 			Query query = session.createQuery(hql);
 		
 			 List<Justificatif>  etudiants = query.list();		//recupere le résultat de la requete
+=======
+			String  hql = "FROM Utilisateurs u left join u.justificatifs as j where j.statut = 1 and parcour=0" ;		//Requete pour recupérer les étudiants
+
+			Query<Etudiant>query = session.createQuery(hql);
+
+			List<Etudiant>  etudiants = query.list();		//recupere le résultat de la requete
+>>>>>>> refs/remotes/origin/Binôme
 
 			//for (Justificatif e : etudiants) {
 				System.out.println(etudiants.size());
 			//}
 
 			t.commit();
-
-			
-			}
-	
-		
-
-		
+		}
 	}
+<<<<<<< HEAD
 	
 	
 	
 	
+=======
+>>>>>>> refs/remotes/origin/Binôme
 
 
 	public static void main(String[] args) {
@@ -119,7 +124,7 @@ public class TestHibernate {
 		//TestHibernate.afficherEtudiantAbs();
 
 
-	
+
 
 	}
 

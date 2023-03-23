@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+nav {
+	background-color: red;
+}
+
+nav #logo {
+	color: white;
+	padding: 15px;
+}
+
+.imgBack {
+	background-image: url("../img/ut1_arsenal.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+
+.container {
+	text-align: center;
+	background-color : white;
+	border-radius: 15px;
+	margin: 0 auto;
+	padding: 40px 10px ;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 50%;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	margin-bottom: 10px;
+}
+
+a {
+	text-decoration: none; 
+	color: inherit; 
+	transition: .8s ease-all;
+}
+a:hover {
+	transition: .8s ease-all;
+	font-size: 18px;
+	letter-spacing: 1.2px;
+}
+
+i {
+	float:left;
+}
+
+i:hover {
+	cursor:pointer;
+}
