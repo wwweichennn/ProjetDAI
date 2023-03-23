@@ -23,54 +23,6 @@ public class centrale extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
-
-		if(email == null && password == null) {
-			request.setAttribute("email_error", "Veillez entrer l'addresse email");
-			request.setAttribute("password_error", "Veillez entrer un mot de passe");
-			request.getRequestDispatcher("index").forward(request, response);
-			
-		}
-		else if (email == null || email.isEmpty()) {
-			request.setAttribute("email_error", "Veillez entrer l'addresse email");
-			request.getRequestDispatcher("index").forward(request, response);
-		}
-		else if (password == null || password.isEmpty()) {
-			request.setAttribute("password_error", "Veillez entrer un mot de passe");
-			request.getRequestDispatcher("index").forward(request, response);
-		}
-		else  {
-			try {
-				Users users = bd2.loginUtilisateur(email, password);
-	
-				if (users == null) {
-					request.setAttribute("generale_error", "Email ou mot de passe incorrect ! Veuillez réessayer !");
-					request.getRequestDispatcher("index").forward(request, response);
-				}
-				else  {
-					request.getSession().setAttribute("id", users.getCodeU());
-					request.getSession().setAttribute("email", users.getIdentifiant());
-					request.getSession().setAttribute("nom", users.getNom());
-					request.getSession().setAttribute("prenom", users.getPrenom());
-					request.getSession().setAttribute("Type", bd2.consulterType(users.getCodeU()));
-					request.getSession().setAttribute("mailSup", users.getMailSupplement());
-					request.getSession().setAttribute("photo", users.getPhoto());
-					
-					if(bd2.consulterType(users.getCodeU()) == "Enseignant") {
-						request.getRequestDispatcher("emploiDuTemps").forward(request, response);
-						}
-				
-				}
-				
-				}
-		 catch (Exception e) {
-				e.printStackTrace();
-				request.setAttribute("generale_error", "Probleme technique ! Veuillez contacter l'administrateur.");
-				request.getRequestDispatcher("index").forward(request, response);
-			}
-
-		}
 	}
 		
 
@@ -79,7 +31,48 @@ public class centrale extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		
+
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+
+		if(email.equals("")&& password.equals("")) {
+			request.setAttribute("email_error", "Veillez entrer l'addresse email");
+			request.setAttribute("password_error", "Veillez entrer un mot de passe");
+			request.getRequestDispatcher("index").forward(request, response);
+			
+		}
+		else if (email.equals("")) {
+			
+			request.setAttribute("email_error", "Veillez entrer l'addresse email");
+			request.getRequestDispatcher("index").forward(request, response);
+		}
+		else if (password.equals("")) {
+			request.setAttribute("email", email);
+			request.setAttribute("password_error", "Veillez entrer un mot de passe");
+			request.getRequestDispatcher("index").forward(request, response);
+		}
+		else  {
+			try {
+				int CodeU=bd2.checkLogin(email, password);
+				
+				if(CodeU==0) {
+					request.setAttribute("generale_error", "Email ou mot de passe incorrect ! Veuillez réessayer !");
+					request.getRequestDispatcher("index").forward(request, response);	
+				}else {
+				
+					if(bd2.consulterType(CodeU).equals("Enseignant")) {
+						request.setAttribute("nom", bd2.consulterNom(CodeU));
+						request.setAttribute("id", CodeU);
+						request.getRequestDispatcher("emploiDuTemps").forward(request, response);
+						}
+					}
+				}
+		 catch (Exception e) {
+				e.printStackTrace();
+				request.setAttribute("generale_error", "Probleme technique ! Veuillez contacter l'administrateur.");
+				request.getRequestDispatcher("index").forward(request, response);
+			}
+		}
 	}
 
 }

@@ -10,18 +10,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<%
-        String email_Erreur = request.getAttribute("email_error") == null ? "" : (String) request.getAttribute("email_error");
-        String password_Erreur = request.getAttribute("password_error") == null ? "" : (String) request.getAttribute("password_error");
-        String generale_Erreur = request.getAttribute("generale_error") == null ? "" : (String) request.getAttribute("generale_error");
-    %>
+
 	<img class="wave" src="img/wave.png">
 	<div class="container">
 		<div class="img">
 			<img src="img/bg.svg">
 		</div>
 		<div class="login-content">
-			<form method="get" action="centrale">
+			<form method="post" action="centrale">
 				<img src="img/ut1.png">
 				<h2 class="title">Bienvenue</h2>
            		<div class="input-div one">
@@ -30,7 +26,7 @@
            		   </div>
            		   <div class="div">
            		   		<h5>Email</h5>
-           		   		<input type="email" class="input"  name="email">
+           		   		<input type="email" class="input"  name="email" value="${email}">
            		   </div>
            		</div>
            		<div class="input-div pass">
@@ -41,17 +37,20 @@
            		    	<h5>Password</h5>
            		    	<input type="password" class="input" name="password">
             	   </div>
-            	   <%= email_Erreur %>
-            	   <%= password_Erreur %>
-            	   <%= generale_Erreur %>
+  
             	</div>
+            	
             	<br/>
             
       			<br/>
             	<a href="#">forget password?</a>
             	<input type="submit" class="btn" value="login" >
+            	   <div>${requestScope.email_error}</div>
+				<div>${requestScope.password_error}</div>
+				<div>${requestScope.generale_error}</div>    
             </form>
         </div>
+               	
     </div>
     <script type="text/javascript" src="js/main.js"></script>
 </body>

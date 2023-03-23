@@ -2,6 +2,7 @@ package dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -178,6 +179,30 @@ public class TestHibernate
 		
 		}
 	
+	}
+
+	public static List<Seance> loadSeancesDonner (int id) 
+	{
+	/*----- Ouverture de la session -----*/
+	try (Session session = HibernateUtil.getSessionFactory().getCurrentSession())
+		{
+		/*----- Ouverture d'une transaction -----*/
+		Transaction t = session.beginTransaction();
+		
+    	List<Seance> seances = new ArrayList<>();
+    	
+    	Query query = session.createQuery("from Seance s where s.CodeU = :id");
+    	query.setParameter("id", id);
+        if (!query.getResultList().isEmpty()) {
+            	seances=query.list();
+            }
+        return seances;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+	return null;
+        
 	}
 	/**
 	 * Programme de test.
