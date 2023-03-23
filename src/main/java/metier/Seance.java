@@ -48,6 +48,11 @@ public class Seance {
     private Map<Utilisateurs,Participer> validerMap = new HashMap<>();
 
 
+//    @OneToMany(mappedBy = "seance",cascade = CascadeType.ALL)
+//    @MapKeyColumn(name = "CodeUt", updatable = false, insertable = false)
+//    private HashMap<Utilisateurs,Participer> validerMap = new HashMap<>();
+
+
 
 	public Seance(int idSeance, String salleS, Date dateS, double dureeS, String heureDebutS,
 			StatutFicheAppel ficheAppelStatut) {

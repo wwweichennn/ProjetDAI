@@ -61,7 +61,4 @@ public class ParticiperId implements java.io.Serializable {
 		return "ParticiperId [codeUt=" + codeUt + ", codeSea=" + codeSea + "]";
 	}
 
-
-
-
 }

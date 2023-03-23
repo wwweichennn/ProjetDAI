@@ -82,21 +82,19 @@ public class TestHibernate {
 			/* transaction*/
 			Transaction t = session.beginTransaction();
 
+			String  hql = "FROM Utilisateurs u left join u.justificatifs where j.statut and parcours=0";
+			Query query = session.createQuery(hql);
+		
+			 List<Justificatif>  etudiants = query.list();		//recupere le résultat de la requete
 
-			String  hql = "FROM Utilisateurs u left join u.justificatifs as j where j.statut = 1 and parcour=0" ;		//Requete pour recupérer les étudiants
-
-			Query<Etudiant>query = session.createQuery(hql);
-
-			List<Etudiant>  etudiants = query.list();		//recupere le résultat de la requete
-
-			for (metier.Etudiant e : etudiants) {
-				System.out.println(e.getNom());
-			}
+			//for (Justificatif e : etudiants) {
+				System.out.println(etudiants.size());
+			//}
 
 			t.commit();
 		}
 	}
-	
+
 
 
 	public static void main(String[] args) {

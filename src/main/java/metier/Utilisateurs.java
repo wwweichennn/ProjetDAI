@@ -66,7 +66,6 @@ public class Utilisateurs {
 	private Set<Justificatif> justificatifs = new HashSet<>(0);
 
 	//relation Particper
-
 	@OneToMany(mappedBy = "utilisateur", cascade = CascadeType.ALL)
 	@MapKeyJoinColumn(name = "CodeSea", updatable = false, insertable = false)
 	private Map<Seance,Participer> validerMapS = new HashMap<>();
