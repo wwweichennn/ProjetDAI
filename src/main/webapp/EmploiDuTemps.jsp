@@ -14,6 +14,7 @@
 <body background="1.jpg" background-size=50%;>
 <div class="parent"> 
 	<div class="div1"> 
+		
 		<h1>Bienvenue de nouveau,</h1>
 		<h2>Mes Emploi du Temps</h2>
 		<h3>Semestre 1 week : 20/03/2023-26/03/2023</h3>
@@ -24,7 +25,7 @@
   
 	    <thead>  
 	    		<td>      </td>           
-	            <td>Lundi</td>
+	            <td>Lundi<div class="date">20/03/2023</div></td>
 	            <td>Mardi</td>
 	            <td>Mercredi</td>
 	            <td>Jeudi</td>
@@ -38,7 +39,7 @@
 	        <%--boucle de seance --%>
 	        <tr>
 	          <td class="heure">8:00-9:30</td>
-	          <td class=course>CM Recueil des besoins Agile</td>
+	          <td class=course><a href="url">CM Recueil des besoins Agile</a><div class="salle">ME405</div></td>
 	          <td class=course>CM Données, intégration, analyse</td>
 	          <td class=course></td>
 	          <td class=course>CM Démarche de développement agile</td>
