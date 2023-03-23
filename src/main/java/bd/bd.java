@@ -20,8 +20,6 @@ public class bd {
 	private static Connection cx;
 	
 	
-	
-	
 	//Methode de connextion a la bdd
 	public static void connection() throws Exception{
 		
@@ -37,6 +35,8 @@ public class bd {
 			throw new Exception ("Erreur BD.connexion() - Ouverture à la connexion - "+ sqle.getMessage());
 		}
 	}
+	
+	
 	
 
 	
