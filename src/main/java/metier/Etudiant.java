@@ -19,7 +19,7 @@ public class Etudiant extends Utilisateurs{
 
 	//constructeur
 	public Etudiant() {
-		super();
+		
 	}
 
 	public Etudiant(String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
@@ -45,6 +45,8 @@ public class Etudiant extends Utilisateurs{
 		this.parcours = parcours;
 	}
 
+	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -57,7 +59,9 @@ public class Etudiant extends Utilisateurs{
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (!super.equals(obj) || (getClass() != obj.getClass()))
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
 			return false;
 		Etudiant other = (Etudiant) obj;
 		return formation == other.formation && parcours == other.parcours;

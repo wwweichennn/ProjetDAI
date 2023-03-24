@@ -92,11 +92,10 @@ public class Utilisateurs {
 	public Map<Seance, Participer> getPresence() {return presence;}
 	public void setPresence(Map<Seance, Participer> validerMapSeance) {this.presence = validerMapSeance;}
 
-	//Redéfinition
 	@Override
 	public int hashCode() {
-		return Objects.hash(codeU, dateNaissance, justificatifs, mail, mailSupplement, nom, prenom, sexe, tel,
-				presence);
+		return Objects.hash(codeU, dateNaissance, justificatifs, mail, mailSupplement, nom, prenom, presence, sexe,
+				tel);
 	}
 
 	@Override
@@ -111,16 +110,18 @@ public class Utilisateurs {
 		return codeU == other.codeU && Objects.equals(dateNaissance, other.dateNaissance)
 				&& Objects.equals(justificatifs, other.justificatifs) && Objects.equals(mail, other.mail)
 				&& Objects.equals(mailSupplement, other.mailSupplement) && Objects.equals(nom, other.nom)
-				&& Objects.equals(prenom, other.prenom) && Objects.equals(sexe, other.sexe)
-				&& Objects.equals(tel, other.tel) && Objects.equals(presence, other.presence);
+				&& Objects.equals(prenom, other.prenom) && Objects.equals(presence, other.presence)
+				&& Objects.equals(sexe, other.sexe) && Objects.equals(tel, other.tel);
 	}
 
 	@Override
 	public String toString() {
-		return "Utilisateurs [" + codeU + ", sexe=" + sexe + ", nom=" + nom + ", prenom=" + prenom
+		return "Utilisateurs [codeU=" + codeU + ", sexe=" + sexe + ", nom=" + nom + ", prenom=" + prenom
 				+ ", dateNaissance=" + dateNaissance + ", mail=" + mail + ", tel=" + tel + ", mailSupplement="
-				+ mailSupplement + ", justificatifs=" + justificatifs + ", presence=" + presence
-				+ "]";
+				+ mailSupplement + ", justificatifs=" + justificatifs + ", presence=" + presence + "]";
 	}
+
+	//Redéfinition
+
 
 }

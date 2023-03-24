@@ -2,9 +2,6 @@ package dao;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -189,8 +186,8 @@ public class TestHibernate {
 				p.setSeance(s);
 
 				//Mise a jour de la presence dans les classe u et s
-				//				u.getPresence().put(s, p);
-				//				s.getParticipationUtilisateur().put(u, p);
+						//	u.getPresence().put(s, p);
+							//	s.getParticipationUtilisateur().put(u, p);
 			}
 			else {
 				//Modification
@@ -198,7 +195,7 @@ public class TestHibernate {
 			}
 
 
-			//			t.commit();
+				//	t.commit();
 			session.close();
 		}
 	}
@@ -211,7 +208,7 @@ public class TestHibernate {
 			Transaction t = session.beginTransaction();
 
 			//Liste des etudiants absence non justifier
-			String  hql = "SELECT u FROM Etudiant u left join u.justificatifs as j where j.statut = 1 and parcours = 0" ;		//Requete pour recupérer les étudiants
+			String  hql = "SELECT u FROM Etudiant u left join u.justificatifs as j where j.statut = 0 and parcours = 1" ;		//Requete pour recupérer les étudiants
 
 			List queryResponse = session.createQuery(hql).list();
 
@@ -222,6 +219,43 @@ public class TestHibernate {
 			return queryResponse;
 		}
 	}
+	
+	public static void ajouterParticipation() {
+		try(Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
+			Transaction t = session.beginTransaction();
+
+			Seance s1 = session.get(Seance.class,1);
+		
+			
+			Etudiant e1 = session.get(Etudiant.class, 3);
+			ParticiperId pid = new ParticiperId(e1.getCodeU(),s1.getIdSeance());
+			
+			
+			
+		
+				Participer p = new Participer(pid,StatutAppel.Absent);
+				p.setUtilisateur(e1);
+				p.setSeance(s1);
+				
+			
+				
+				s1.getParticipationUtilisateur().put(e1, p);
+				e1.getPresence().put(s1, p);
+				
+				
+				session.save(e1);
+				session.save(e1);
+				session.save(p);
+				
+		
+			
+		
+			
+			t.commit();
+			session.close();
+		
+		}
+	}
 
 
 	public static void main(String[] args) throws Exception {
@@ -229,7 +263,7 @@ public class TestHibernate {
 		//TestHibernate.createUtilisateur();
 
 		System.out.println("------- Affichage de l'utilisateur -------");
-		TestHibernate.loadUtilisateur(4);
+		//TestHibernate.loadUtilisateur(4);
 
 		System.out.println("----- Creation des cours -----");
 		//TestHibernate.createCours();
@@ -241,10 +275,11 @@ public class TestHibernate {
 		//TestHibernate.createJustificatif();
 
 		System.out.println("-----Creations des participations ------");
-		//TestHibernate.addParticiper(5, 3, StatutAppel.Absent);;
+		//TestHibernate.addParticiper(5, 3, StatutAppel.Absent);
+		TestHibernate.ajouterParticipation();
 
 		//requte pour obtenir les etudinats qui ont pas unjustificatif 
-		TestHibernate.loadEtuAbsNonJustifier();
+		//TestHibernate.loadEtuAbsNonJustifier();
 
 		System.out.println("------ Fin Test ----------");
 

@@ -119,6 +119,8 @@ public class Seance {
 		this.cours = cours;
 	}
 
+	
+
 	public Map<Utilisateurs, Participer> getParticipationUtilisateur() {
 		return participationUtilisateur;
 	}
