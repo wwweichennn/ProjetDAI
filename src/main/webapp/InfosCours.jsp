@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="css/CoursAnneeStyle.css">
+<link rel="stylesheet" type="text/css" href="css/InfosCoursStyle.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Cours par Année_Enseignant</title>
+<title>Informations détails d'un cours</title>
 </head>
 <body>
+	<!-- menu -->
 	<div class="menu">
 		<ul>
 			<li><img src="img/logo-ut1.png" class="logo-ut1" /></li>
@@ -33,26 +33,8 @@
 		</ul>
 	</div>
 	<!-- /menu -->
-   <h1>Mes cours  2022-2023</h1>
-    <div class="wrapper">
-        <div class="search">
-            <input type="text" class="inp" placeholder="Rechercher">
-            <ul class="btn-list">
-                <li class="active" annee='all'>All</li>
-                <li semestre='s1'>Semestre 1</li>
-                <li semestre='s2'>Semestre 2</li>
-            </ul>
-        </div> 
-        
-	    <div class="cours">
-	     <ul>
-	         <li><a href="InfosCours.jsp">Agile</a></li>
-	         <li><a href="">BPMN</a></li>
-	         <li><a href="">Anglais</a></li>
-	         
-	     </ul>
-		</div>
-	</div>
-   
+	
+	<h1>Informations d'appel passé pour le cours Agile</h1>
+	
 </body>
 </html>
