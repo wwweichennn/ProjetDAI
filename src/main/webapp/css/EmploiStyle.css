@@ -176,10 +176,14 @@ a{
     height:45px;  
     line-height:45px;
     font-size:18px;
+	 z-index:999;
+  
 }     
 .menu ul li ul     
 {     
-    display:none;/*不显示*/     
+    display:none;/*不显示*/ 
+      
+     
 }          
 .menu ul li:hover ul     
 {     
