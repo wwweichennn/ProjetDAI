@@ -13,7 +13,7 @@
 <body>
 
 	<h1>
-		Liste des étudiants non valides de la promotion
+		Etudiants de 
 		<%= request.getParameter("type_promo") %></h1>
 
 	<table border="1">

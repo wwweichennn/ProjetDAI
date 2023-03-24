@@ -201,23 +201,40 @@ public class TestHibernate {
 	}
 
 	/**
+	 * Lecture cast des etudiants
+	 * @param l
+	 */
+	public static void lire1(List l) {
+		for (Object obj : l) {
+			if (obj instanceof Etudiant) {
+				Etudiant etudiant = (Etudiant) obj;
+				System.out.println(etudiant);
+			}
+		}
+	}
+
+	/**
 	 * Recupère et affiche les etudiants qui n'ont pas justifier leur presence
+	 * @return 
 	 */
 	public static List loadEtuAbsNonJustifier() {
 		try(Session session = HibernateUtil.getSessionFactory().getCurrentSession()) {
 			Transaction t = session.beginTransaction();
 
 			//Liste des etudiants absence non justifier
+
 			String  hql = "SELECT u FROM Etudiant u left join u.justificatifs as j where j.statut = 0 and parcours = 1" ;		//Requete pour recupérer les étudiants
+
 
 			List queryResponse = session.createQuery(hql).list();
 
-			
-			//TestHibernate.lire1(queryResponse);
-			
+			System.out.println("taille de la reponse : "+ queryResponse.size());
+			TestHibernate.lire1(queryResponse);
+
 			t.commit();
 			return queryResponse;
 		}
+	
 	}
 	
 	public static void ajouterParticipation() {
@@ -274,12 +291,21 @@ public class TestHibernate {
 		System.out.println("-----Creations des justificatifs------");
 		//TestHibernate.createJustificatif();
 
+
 		System.out.println("-----Creations des participations ------");
 		//TestHibernate.addParticiper(5, 3, StatutAppel.Absent);
 		TestHibernate.ajouterParticipation();
+		//		System.out.println("-----Creations des participations ------");
+		//TestHibernate.addParticiper(5, 3, StatutAppel.Absent);;
+
 
 		//requte pour obtenir les etudinats qui ont pas unjustificatif 
+
 		//TestHibernate.loadEtuAbsNonJustifier();
+
+		System.out.println("----- Chargement des etudiants absents ------");
+		TestHibernate.loadEtuAbsNonJustifier();
+
 
 		System.out.println("------ Fin Test ----------");
 
@@ -297,17 +323,6 @@ public class TestHibernate {
 			System.out.println();
 		}
 	}
-	/**
-	 * Lecture cast des etudiants
-	 * @param l
-	 */
-	public static void lire1(List l) {
-	    for (Object obj : l) {
-	        if (obj instanceof Etudiant) {
-	            Etudiant etudiant = (Etudiant) obj;
-	            System.out.println(etudiant);
-	        }
-	    }
-	}
+
 
 }
