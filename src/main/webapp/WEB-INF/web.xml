@@ -30,6 +30,10 @@
 		<servlet-name>ConsultAbs</servlet-name>
 		<jsp-file>/Etudiant/ConsultAbs.jsp</jsp-file>
 	</servlet>
+	<servlet>
+		<servlet-name>absparmois</servlet-name>
+		<jsp-file>/Etudiant/absparmois.jsp</jsp-file>
+	</servlet>
 
 	<!-- Donner un alias -->
 	<servlet-mapping>
@@ -52,6 +56,10 @@
 	<servlet-mapping>
 		<servlet-name>ModifProfil</servlet-name>
 		<url-pattern>/ModifProfil</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>absparmois</servlet-name>
+		<url-pattern>/absparmois</url-pattern>
 	</servlet-mapping>
 
 	<!-- -->

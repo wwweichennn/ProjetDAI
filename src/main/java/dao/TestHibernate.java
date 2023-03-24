@@ -216,7 +216,7 @@ public class TestHibernate {
 			List queryResponse = session.createQuery(hql).list();
 
 			
-			TestHibernate.lire1(queryResponse);
+			//TestHibernate.lire1(queryResponse);
 			
 			t.commit();
 			return queryResponse;

@@ -8,14 +8,14 @@ import javax.persistence.*;
 import enumtype.StatutJustificatif;
 
 @Entity
-@Table(name = "Justificatifs")
+
 
 public class Justificatif {
 	
 	//Propriétés
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="CodeJ")
+
 	private int idJ;
 	
 	@Column(name="StatutJ")
@@ -26,9 +26,10 @@ public class Justificatif {
 	
 	@Column(name="DateDebut")
 	@Temporal(javax.persistence.TemporalType.DATE)
-	private Date dateDebut;
 	
+	private Date dateDebut;	
 	@Column(name="DateFin")
+	
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date dateFin;
 
@@ -36,6 +37,7 @@ public class Justificatif {
 	//relation deposer
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "CodeU")
+	
     private Utilisateurs utilisateur;
 
 	
