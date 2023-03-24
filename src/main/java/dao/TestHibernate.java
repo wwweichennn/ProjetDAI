@@ -26,7 +26,7 @@ import metier.Participer;
 import metier.ParticiperId;
 import metier.Scolarite;
 import metier.Seance;
-import metier.Users;
+import metier.Utilisateurs;
 
 
 public class TestHibernate {
@@ -42,8 +42,8 @@ public class TestHibernate {
 			/* transaction*/
 			Transaction t = session.beginTransaction();
 
-			Users u1 = new Users("M", "Baer", "Mateo", "27/05/1999", "mateobaer@gmail.com", "0987654321", "altmb@hotmail.com");
-			Users u2 = new Users("F", "Reab", "Matias", "27/05/2000", "ReabMatias@gmail.com", "0987654321", "altmb@hotmail.com");
+			Utilisateurs u1 = new Utilisateurs("M", "Baer", "Mateo", "27/05/1999", "mateobaer@gmail.com", "0987654321", "altmb@hotmail.com");
+			Utilisateurs u2 = new Utilisateurs("F", "Reab", "Matias", "27/05/2000", "ReabMatias@gmail.com", "0987654321", "altmb@hotmail.com");
 
 			Etudiant e1 = new Etudiant("M", "Folvert", "Kevin", "27/05/1999", "mateobaer@gmail.com", "0987654321", "altmb@hotmail.com", Parcours.IPM, Formations.FI);
 			Etudiant e2 = new Etudiant("F", "Weichen", "Sun", "27/05/1999", "mateobaer@gmail.com", "0987654321", "altmb@hotmail.com", Parcours.ISIAD, Formations.FA);
@@ -67,13 +67,13 @@ public class TestHibernate {
 	/**
 	 * Methode qui affiche un etudiant
 	 */
-	public static Users loadUtilisateur(int id) 
+	public static Utilisateurs loadUtilisateur(int id) 
 	{
 		try(Session session = HibernateUtil.getSessionFactory().getCurrentSession())
 		{
 			Transaction t = session.beginTransaction();
 
-			Users u = session.get(Users.class, id);
+			Utilisateurs u = session.get(Utilisateurs.class, id);
 			System.out.println("------ Utilisateur "+ id + "------");
 			System.out.println(u.toString());
 
@@ -142,8 +142,8 @@ public class TestHibernate {
 			/* transaction*/
 			Transaction t = session.beginTransaction();
 
-			Users u1 = session.get(Users.class, 5);
-			Users u2 = session.get(Users.class, 4);
+			Utilisateurs u1 = session.get(Utilisateurs.class, 5);
+			Utilisateurs u2 = session.get(Utilisateurs.class, 4);
 
 			Justificatif j1 = new Justificatif(StatutJustificatif.NonValide, "www.projet.com", DF.parse("12-03-2023"),DF.parse("13-03-2023"), u1);
 			Justificatif j2 = new Justificatif(StatutJustificatif.Valide, "www.excuse.com", DF.parse("20-03-2023"),DF.parse("20-03-2023"), u1);
@@ -169,7 +169,7 @@ public class TestHibernate {
 			Transaction t = session.beginTransaction();
 
 			//Recupération d'étudiants
-			Users u = session.get(Users.class, idUtilisateur);
+			Utilisateurs u = session.get(Utilisateurs.class, idUtilisateur);
 
 			//Récupération de seances
 			Seance s = session.get(Seance.class,idSeance);

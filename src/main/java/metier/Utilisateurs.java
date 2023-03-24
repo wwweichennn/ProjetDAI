@@ -31,7 +31,7 @@ import javax.persistence.OneToMany;
 @DiscriminatorColumn(name = "typeU", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("Users")
 
-public class Users implements java.io.Serializable
+public class Utilisateurs implements java.io.Serializable
 {
 	//priorite
 	
@@ -87,9 +87,9 @@ public class Users implements java.io.Serializable
 	 
 	
 	//Constructeur
-	public Users() {}
+	public Utilisateurs() {}
 
-	public Users(String identifiant, String motDePasse, String nom, String prenom, String sexe, Date dateNaissance,
+	public Utilisateurs(String identifiant, String motDePasse, String nom, String prenom, String sexe, Date dateNaissance,
 			String mailSupplement, String photo) {
 		super();
 		this.identifiant = identifiant;
@@ -176,7 +176,7 @@ public class Users implements java.io.Serializable
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Users other = (Users) obj;
+		Utilisateurs other = (Utilisateurs) obj;
 		return Objects.equals(dateNaissance, other.dateNaissance);
 	}
 

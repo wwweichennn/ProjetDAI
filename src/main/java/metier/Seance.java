@@ -49,12 +49,12 @@ public class Seance {
 	//--------participer-----------
 	@OneToMany(mappedBy = "seance", cascade = CascadeType.ALL)
 	@MapKeyJoinColumn(name = "CodeU", updatable = false, insertable = false)
-	private Map<Users,Participer> participer = new HashMap(0);
+	private Map<Utilisateurs,Participer> participer = new HashMap(0);
 	
 	//---------donner---------
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "CodeU")
-	private Users users;
+	private Utilisateurs users;
 	
 	//---------appartenir------
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -64,7 +64,7 @@ public class Seance {
 	
 	public Seance() {}
 	public Seance(String salleS, Date dateS, int dureeS, Date heureDebut, String statutFicheAppel,
-			Users users, Cours cours) {
+			Utilisateurs users, Cours cours) {
 		super();
 		SalleS = salleS;
 		this.dateS = dateS;
@@ -77,13 +77,13 @@ public class Seance {
 
 
 	
-	public Map<Users, Participer> getParticiper() {
+	public Map<Utilisateurs, Participer> getParticiper() {
 		return participer;
 	}
 	
-	public void setParticiper(Map<Users, Participer> participer) {this.participer = participer;}
-	public Users getUsers() {return users;}
-	public void setUsers(Users users) {this.users = users;}
+	public void setParticiper(Map<Utilisateurs, Participer> participer) {this.participer = participer;}
+	public Utilisateurs getUsers() {return users;}
+	public void setUsers(Utilisateurs users) {this.users = users;}
 	public Cours getCours() {return cours;}
 	public void setCours(Cours cours) {this.cours = cours;}
 	public int getIdSeance() {return idSeance;}

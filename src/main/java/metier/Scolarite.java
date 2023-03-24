@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("Scolarite")
-public class Scolarite extends Users{
+public class Scolarite extends Utilisateurs{
 	//priorite
 	@Column(name="bureauS")
 	private String bureauS;
