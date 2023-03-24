@@ -9,7 +9,7 @@ import enumtype.StatutJustificatif;
 
 @Entity
 
-
+@Table(name = "Justificatifs")
 public class Justificatif {
 	
 	//Propriétés
