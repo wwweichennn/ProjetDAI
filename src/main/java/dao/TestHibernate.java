@@ -211,12 +211,12 @@ public class TestHibernate {
 			Transaction t = session.beginTransaction();
 
 			//Liste des etudiants absence non justifier
-			String  hql = "FROM Etudiant u left join u.justificatifs as j where j.statut = 1 and parcours = 0" ;		//Requete pour recupérer les étudiants
+			String  hql = "SELECT u FROM Etudiant u left join u.justificatifs as j where j.statut = 1 and parcours = 0" ;		//Requete pour recupérer les étudiants
 
 			List queryResponse = session.createQuery(hql).list();
 
 			
-			TestHibernate.lire(queryResponse);
+			TestHibernate.lire1(queryResponse);
 			
 			t.commit();
 			return queryResponse;
@@ -261,6 +261,18 @@ public class TestHibernate {
 			}
 			System.out.println();
 		}
+	}
+	/**
+	 * Lecture cast des etudiants
+	 * @param l
+	 */
+	public static void lire1(List l) {
+	    for (Object obj : l) {
+	        if (obj instanceof Etudiant) {
+	            Etudiant etudiant = (Etudiant) obj;
+	            System.out.println(etudiant);
+	        }
+	    }
 	}
 
 }
