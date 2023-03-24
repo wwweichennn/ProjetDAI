@@ -26,14 +26,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% 
-            List<Object> listeAbs = (List<Object>) request.getAttribute("listeAbs");
-            for (Object obj : listeAbs) {
-                    if (obj instanceof Utilisateurs) {
-                    	 Utilisateurs etudiant = (Utilisateurs) obj;
-                    	
-//                 for (Utilisateurs etudiant : (ArrayList<Utilisateurs>) request.getAttribute("listeAbs"))
-            %>
+			<%
+			List<Object> listeAbs = (List<Object>) request.getAttribute("listeAbs");
+			            for (Object obj : listeAbs) {
+			                    if (obj instanceof Users) {
+			                    	 Users etudiant = (Users) obj;
+			                    	
+			//                 for (Utilisateurs etudiant : (ArrayList<Utilisateurs>) request.getAttribute("listeAbs"))
+			%>
 			<tr>
 				<td><%= etudiant.getNom() %></td>
 				<td><%= etudiant.getPrenom() %></td>

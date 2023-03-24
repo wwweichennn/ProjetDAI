@@ -11,17 +11,19 @@
 	vertical-align: top;
 	border:3px;
 	border-color:black;
-	background-color: #FFFFF0;
+	background-color: #f2f2f2;
 }
 
 #content {
 	display: table-cell;
 	width: 85%;
 	vertical-align: top;
+	background-color:#f9f9eb;
 }
 
 nav {
-	background-color: red;
+	background-color: #DC143C;
+	color:white;
 }
 nav #logo {
 	color: white;
@@ -35,15 +37,4 @@ body {
 	margin: 0;
 	height: 100%;
 }
-      .button {
-        background-color: #1c87c9;
-        border: none;
-        color: white;
-        padding: 20px 34px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 20px;
-        margin: 4px 2px;
-        cursor: pointer;
-      }
+

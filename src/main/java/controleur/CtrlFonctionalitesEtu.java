@@ -21,7 +21,7 @@ public class CtrlFonctionalitesEtu extends HttpServlet {
 	protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
 
-	String action = request.getParameter("type_action");
+	String action = request.getParameter("type_Moi");
 	String url;
 
 
@@ -37,17 +37,45 @@ public class CtrlFonctionalitesEtu extends HttpServlet {
 				url = "ModifProfil";
 				break;
 
-			case "Fonct":
-				url = "ConsultAbs";
+			case "Janvier":
+				url = "absparmois";
+				break;
+			case "Fevrier":
+				url = "absparmois";
+				break;
+			case "Mars":
+				url = "absparmois";
+				break;
+			case "Avril":
+				url = "absparmois";
+				break;
+			case "Mai":
+				url = "absparmois";
+				break;
+			case "Juin":
+				url = "absparmois";
+				break;
+			case "Septembre":
+				url = "absparmois";
+				break;
+			case "Octobre":
+				url = "absparmois";
+				break;
+			case "Novembre":
+				url = "absparmois";
+				break;
+			case "Decembre":
+				url = "absparmois";
 				break;
 
 			default:
-				url = "AcceuilEtudiant";
+				url = "absparmois";
 			}
 		
 		}
 		
 	// Chainage.
+	request.setAttribute("Mois", action);
 	request.getRequestDispatcher(url).forward(request, response);
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
