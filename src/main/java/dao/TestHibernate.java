@@ -224,7 +224,7 @@ public class TestHibernate {
 			Transaction t = session.beginTransaction();
 
 			//Liste des etudiants absence non justifier
-			String  hql = "SELECT u FROM Etudiant u left join u.justificatifs as j where j.statut = 1 and u.parcours = 0" ;		//Requete pour recupérer les étudiants
+			String  hql = "SELECT u FROM users u left join u.justificatifs as j where j.validation = 0 and u.parcours = IPM" ;		//Requete pour recupérer les étudiants
 
 			List queryResponse = session.createQuery(hql).list();
 
