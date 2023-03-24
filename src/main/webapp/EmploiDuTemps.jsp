@@ -168,6 +168,8 @@
 							out.println("<td class=course id='d" + i + "'></td>");
 						}
 						%>
+						
+						
 					</tr>
 
 
