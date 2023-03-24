@@ -28,8 +28,8 @@ public class TestHibernate
 	 */
 
 	/*----- Format de date -----*/
-	private static final SimpleDateFormat DF = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-	private static final SimpleDateFormat DFDATE = new SimpleDateFormat("dd-MM-yyyy");
+	private static final SimpleDateFormat DF = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	private static final SimpleDateFormat DFDATE = new SimpleDateFormat("dd/MM/yyyy");
 
 
 	/**
@@ -85,14 +85,14 @@ public class TestHibernate
 		/*----- Ouverture d'une transaction -----*/
 		Transaction t = session.beginTransaction();
 
-		Enseignant u1=new Enseignant("weichen@gmail.com","1234","sun","weichen","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa","MF201");
-		Enseignant u2=new Enseignant("zhibo@gmail.com","1234","xie","zhibo","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa","MF202");
+		Enseignant u1=new Enseignant("weichen@gmail.com","1234","sun","weichen","Mme",DFDATE.parse("15/11/1998"),"aaa@qqq","aaaaaaaaaa","MF201");
+		Enseignant u2=new Enseignant("zhibo@gmail.com","1234","xie","zhibo","M",DFDATE.parse("04/04/1998"),"aaa@qqq","aaaaaaaaaa","MF202");
 
-		Etudiant u3=new Etudiant("weichen@gmail.com","1234","Ma","rong","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa","IPM","FI");
-		Etudiant u4=new Etudiant("zhibo@gmail.com","1234","abc","def","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa","IPM","FA");
+		Etudiant u3=new Etudiant("weichen@gmail.com","1234","Ma","rong","Mme",DFDATE.parse("15/11/1998"),"aaa@qqq","aaaaaaaaaa","IPM","FI");
+		Etudiant u4=new Etudiant("zhibo@gmail.com","1234","abc","def","M",DFDATE.parse("04/04/1998"),"aaa@qqq","aaaaaaaaaa","IPM","FA");
 
-		Users u5=new Users("weichen@gmail.com","1234","zzz","rrr","Mme",DFDATE.parse("15-11-1998"),"aaa@qqq","aaaaaaaaaa");
-		Users u6=new Users("zhibo@gmail.com","1234","ppp","vvv","M",DFDATE.parse("04-04-1998"),"aaa@qqq","aaaaaaaaaa");
+		Users u5=new Users("weichen@gmail.com","1234","zzz","rrr","Mme",DFDATE.parse("15/11/1998"),"aaa@qqq","aaaaaaaaaa");
+		Users u6=new Users("zhibo@gmail.com","1234","ppp","vvv","M",DFDATE.parse("04/04/1998"),"aaa@qqq","aaaaaaaaaa");
 
 		session.save(u1);
 		session.save(u2);
@@ -118,9 +118,9 @@ public class TestHibernate
 		Users u2 =  session.get(Users.class, 2);
 		Cours c2 =  session.get(Cours.class, 2);
 		
-		Seance s1= new Seance("Me401",DFDATE.parse("04-01-2023"),90,DF.parse("04-04-1998 09:00:00"),"validé",u1,c1);
-		Seance s2= new Seance("Me401",DFDATE.parse("04-01-2023"),18,DF.parse("04-04-1998 14:00:00"),"validé",u1,c1);
-		Seance s3= new Seance("Me401",DFDATE.parse("05-01-2023"),90,DF.parse("04-04-1998 09:00:00"),"validé",u2,c2);
+		Seance s1= new Seance("Me401",DFDATE.parse("04/01/2023"),90,DF.parse("04/04/1998 09:00:00"),"validé",u1,c1);
+		Seance s2= new Seance("Me401",DFDATE.parse("04/01/2023"),18,DF.parse("04/04/1998 14:00:00"),"validé",u1,c1);
+		Seance s3= new Seance("Me401",DFDATE.parse("05/01/2023"),90,DF.parse("04/04/1998 09:00:00"),"validé",u2,c2);
 		
 		session.save(s1);
 		session.save(s2);
@@ -169,7 +169,7 @@ public class TestHibernate
 		Users u3 =  session.get(Users.class, 1);
 	
 
-		Justificatif j1=new Justificatif(false,"www",DFDATE.parse("04-01-2023"),DFDATE.parse("05-01-2023"),u3);
+		Justificatif j1=new Justificatif(false,"www",DFDATE.parse("04/01/2023"),DFDATE.parse("05/01/2023"),u3);
 
 		u3.getJustificatifs().add(j1);
 		session.save(j1);
@@ -215,8 +215,6 @@ public class TestHibernate
 		TestHibernate.createSeance();
 		TestHibernate.createParticipe();
 		TestHibernate.createDeposerJus();
-		
-		
 		}
 
 
