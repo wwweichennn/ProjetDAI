@@ -1,6 +1,15 @@
 @charset "UTF-8";
 
- /* menu*/
+body{
+	background-color: #FFFFE7;
+}
+h1{
+	color: #8f0d0d;
+    position: relative;
+    top: 20px;
+    left:30px;
+}
+/* menu*/
 .menu{  
 	height: 60px;
     margin: auto;
@@ -44,10 +53,13 @@
     height:45px;  
     line-height:45px;
     font-size:18px;
+  
 }     
 .menu ul li ul     
 {     
-    display:none;/*不显示*/     
+    display:none;/*不显示*/ 
+      
+     
 }          
 .menu ul li:hover ul     
 {     
@@ -58,7 +70,7 @@
     background-color: #ff8c76;
     color: white;
     font-size:19px;
-    
+   
 }
 .compte{
     float:right;
@@ -78,12 +90,14 @@
     margin:0;
     list-style:none;
     outline:none;
+    text-decoration:none;
+    color:#711a1a;
 }
 body,html{
     background:#f7f7f7;
 }
 .wrapper{
-    width:600px;
+    width:1100px;
     height:850px;
     overflow: auto;
     background:#fff;
@@ -115,7 +129,7 @@ body,html{
     height:40px;
     line-height:40px;
     text-align:center;
-    width:60px;
+    width:100px;
     border:1px solid #0bc7b7;
     border-radius:3px;
     margin-left:10px;
@@ -126,11 +140,11 @@ body,html{
     background:#0bc7b7;
     color:#fff;
 }
-.wrapper .user{
+.wrapper .cours{
     width:100%;
     margin-top:30px;
 }
-.wrapper .user li{
+.wrapper .cours li{
     background:#f8f8f8;
     border-radius:3px;
     height:60px;
@@ -139,15 +153,15 @@ body,html{
     cursor: pointer;
     transition: all ease-in 0.2s; 
     margin-bottom:15px; 
+    
 }
-.wrapper .user li:hover{
+.wrapper .cours li:hover{
     background:#dff3eb;
 }
-/*
-.wrapper .user li:hover .tit .motto{
-
+.wrapper .cours li:hover .tit .motto{
 }
-.wrapper .user li .head-img{
+}
+.wrapper .cours li .head-img{
     height:60px;
     width:60px;
     border-radius:50%;
@@ -155,22 +169,22 @@ body,html{
     float: left;
     box-shadow:0 1px 4px rgba(0,0,0,0.2);
 }
-.wrapper .user li .head-img img{
+.wrapper .cours li .head-img img{
     width:120%;
 }
-.wrapper .user li .tit{
+.wrapper .cours li .tit{
     float: right;
     height:100%;
     width:85%;
     margin-top:5px;
     
 }
-.wrapper .user li .tit .name{
+.wrapper .cours li .tit .name{
     font-size: 18px;
     font-weight:bolder;
     margin-bottom:8px;
 }
-.wrapper .user li .tit .motto{
+.wrapper .cours li .tit .motto{
     font-size: 14px;
     color:#5c5c5c;
     text-overflow:ellipsis;
@@ -186,7 +200,7 @@ body,html{
     border-radius:3px; 
     display: none;
 }
-*/
+
 .cours ul li{
     background:#f8f8f8;
     border-radius:3px;
