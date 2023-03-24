@@ -9,7 +9,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="css/EmploiStyle.css">
-<script src="js/EmploiDuTempsJS"></script>
+<script type="text/JavaScript" src="js/Fct_planning.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Accueil_Enseignant</title>
@@ -26,8 +26,8 @@
 					.getMonth(), firstDayOfWeek.getDate() + i);
 			var dayOfWeek = new Array("Dimanche", "Lundi", "Mardi", "Mercredi",
 					"Jeudi", "Vendredi", "Samedi")[date.getDay()];
-			document.getElementById("date" + i).innerHTML = "<div > "
-					+ dayOfWeek + "</div >" + date.toLocaleDateString();
+			document.getElementById("date" + i).innerHTML = dayOfWeek ;
+			document.getElementById("jour" + i).innerHTML =date.toLocaleDateString();
 		}
 	}
 </script>
@@ -35,13 +35,14 @@
 </head>
 <body>
 	<%
+
 	%>
 	<!-- menu -->
 	<div class="menu">
 		<ul>
 			<li><img src="img/logo-ut1.png" class="logo-ut1" /></li>
 			<div class="accueil">
-				<li><a href="webapp.EmploiDuTemps.jsp">Accueil</a>
+				<li><a href="webapp.EmploiDuTemps">Accueil</a>
 			</div>
 			</li>
 			<li class="cours"><a href="#">Mes cours</a>
@@ -75,49 +76,59 @@
 			<table border="2" align="center" width="90%" cellpadding="2"
 				cellspacing="2">
 
-				<thead id="titre">
+				<thead>
 					<td></td>
-					<td><div id="date0"></div id="jour0"><div></div></td>
-					<td><div id="date1"></div id="jour1"><div></div></td>
-					<td><div id="date2"></div id="jour2"><div></div></td>
-					<td><div id="date3"></div id="jour3"><div></div></td>
-					<td><div id="date4"></div id="jour4"><div></div></td>
-					<td><div id="date5"></div id="jour5"><div></div></td>
-					<td><div id="date6"></div id="jour6"><div></div></td>
+				
+					<td id="date0"></td>
+					<td id="date1"></td>
+					<td id="date2"></td>
+					<td id="date3"></td>
+					<td id="date4"></td>
+					<td id="date5"></td>
+					<td id="date6"></td>
 				</thead>
 
 				<tbody>
+<tr>
+<td></td>
 
+					<td id="jour0"><div></div></td>
+					<td id="jour1"><div></div></td>
+					<td id="jour2"><div></div></td>
+					<td id="jour3"><div></div></td>
+					<td id="jour4"><div></div></td>
+					<td id="jour5"><div></div></td>
+					<td id="jour6"><div></div></td>
+
+</tr>
 					<%--boucle de seance --%>
-					<tr id="h1">
-						<td class="heure">8:00-9:30</td>
+					<tr>
+						<td class="heure" id="h1">8:00-9:30</td>
 						<%
-						
 						for (int i = 0; i < 7; i++) {
 							out.println("<td class=course id='d" + i + "'></td>");
 						}
-						
 						%>
 
 					</tr>
-					<tr id="h2">
-						<td class="heure">9:30-11:00</td>
+					<tr >
+						<td class="heure" id="h2">9:30-11:00</td>
 						<%
 						for (int i = 0; i < 7; i++) {
 							out.println("<td class=course id='d" + i + "'></td>");
 						}
 						%>
 					</tr>
-					<tr id="h3">
-						<td class="heure">11:00-12:30</td>
+					<tr >
+						<td class="heure" id="h3">11:00-12:30</td>
 						<%
 						for (int i = 0; i < 7; i++) {
 							out.println("<td class=course id='d" + i + "'></td>");
 						}
 						%>
 					</tr>
-					<tr id="h4">
-						<td class="heure">12:30-14:00</td>
+					<tr>
+						<td class="heure" id="h4">12:30-14:00</td>
 						<td></td>
 						<td></td>
 						<td></td>
@@ -126,32 +137,32 @@
 						<td></td>
 						<td></td>
 					</tr>
-					<tr id="h5">
-						<td class="heure">14:00-15:30</td>
+					<tr>
+						<td class="heure" id="h5">14:00-15:30</td>
 						<%
 						for (int i = 0; i < 7; i++) {
 							out.println("<td class=course id='d" + i + "'></td>");
 						}
 						%>
 					</tr>
-					<tr id="h6">
-						<td class="heure">15:30-17:00</td>
+					<tr>
+						<td class="heure" id="h6">15:30-17:00</td>
 						<%
 						for (int i = 0; i < 7; i++) {
 							out.println("<td class=course id='d" + i + "'></td>");
 						}
 						%>
 					</tr>
-					<tr id="h7">
-						<td class="heure">17:00-18:30</td>
+					<tr>
+						<td class="heure" id="h7">17:00-18:30</td>
 						<%
 						for (int i = 0; i < 7; i++) {
 							out.println("<td class=course id='d" + i + "'></td>");
 						}
 						%>
 					</tr>
-					<tr id="h8">
-						<td class="heure">18:30-20:00</td>
+					<tr>
+						<td class="heure" id="h8">18:30-20:00</td>
 						<%
 						for (int i = 0; i < 7; i++) {
 							out.println("<td class=course id='d" + i + "'></td>");
@@ -168,6 +179,12 @@
 			<button class="button1"
 				οnclick=“window.location.href=‘Information.jsp’” type="button"
 				id="infos">Informations</button>
+		</div>
+		
+	<div class="div3">
+			<button class="button1"
+				οnclick="afficher()" type="button"
+				id="afficher">afficher</button>
 		</div>
 
 		<div class="div4">
