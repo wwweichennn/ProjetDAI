@@ -1,51 +1,37 @@
 package metier;
 
-import java.util.*;
+import java.util.Date;
+import java.util.Objects;
 
+import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
-import enumtype.Formations;
-import enumtype.Parcours;
-
 @Entity
 @DiscriminatorValue("Etudiant")
-
-public class Etudiant extends Utilisateurs{
-
-	//proprietes
-	private Parcours parcours;
-	private Formations formation;
-
-	//constructeur
-	public Etudiant() {
-		
-	}
-
-	public Etudiant(String sexe, String nom, String prenom, String dateNaissance, String mail, String tel,
-			String mailSupplement, Parcours parcours, Formations formation) {
-		super(sexe, nom, prenom, dateNaissance, mail, tel, mailSupplement);
-		this.formation=formation;
-		this.parcours=parcours;
-	}
-
-	public Formations getFormation() {
-		return formation;
-	}
-
-	public void setFormation(Formations formation) {
+public class Etudiant extends Users {
+	//priorite
+	@Column(name="parcours")
+	private String parcours;
+	
+	@Column(name="formation")
+	private String formation;
+	
+	//Constructeur
+	public Etudiant() {}
+	
+	public Etudiant(String identifiant, String motDePasse, String nom, String prenom, String sexe, Date dateNaissance,
+			String mailSupplement, String photo,String parcours, String formation) {
+		super(identifiant, motDePasse, nom, prenom, sexe, dateNaissance, mailSupplement, photo);
+		this.parcours = parcours;
 		this.formation = formation;
 	}
 
-	public Parcours getParcours() {
-		return parcours;
-	}
-
-	public void setParcours(Parcours parcours) {
-		this.parcours = parcours;
-	}
-
-	
+	//Getters & Setters 
+	public String getParcours() {return parcours;}
+	public void setParcours(String parcours) {this.parcours = parcours;}
+	public String getFormation() {return formation;}
+	public void setFormation(String formation) {this.formation = formation;}
 
 	@Override
 	public int hashCode() {
@@ -64,14 +50,11 @@ public class Etudiant extends Utilisateurs{
 		if (getClass() != obj.getClass())
 			return false;
 		Etudiant other = (Etudiant) obj;
-		return formation == other.formation && parcours == other.parcours;
+		return Objects.equals(formation, other.formation) && Objects.equals(parcours, other.parcours);
 	}
 
 	@Override
 	public String toString() {
-		return "Etudiant [nom " + this.getNom() + " prenom " + this.getPrenom() + " parcours = " + parcours + ", formation=" + formation + "]";
+		return "Etudiant [parcours=" + parcours + ", formation=" + formation + "]";
 	}
-
-
-
-}
+	}

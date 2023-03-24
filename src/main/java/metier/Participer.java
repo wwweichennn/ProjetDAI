@@ -28,7 +28,7 @@ public class Participer {
 	//relation vers Utilisateur
 	@ManyToOne
 	@JoinColumn(name = "CodeU", insertable = false,updatable = false)
-	private Utilisateurs utilisateur;
+	private Users utilisateur;
 
 	//Relation vers Seance
 	@ManyToOne
@@ -59,11 +59,11 @@ public class Participer {
 		this.statut = statut;
 	}
 
-	public Utilisateurs getUtilisateur() {
+	public Users getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(Utilisateurs utilisateur) {
+	public void setUtilisateur(Users utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 

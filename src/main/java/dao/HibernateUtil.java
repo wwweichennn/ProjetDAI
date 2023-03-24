@@ -27,7 +27,7 @@ public class HibernateUtil {
 			 * Ajout des classes.
 			 */
 
-			configuration.addAnnotatedClass(metier.Utilisateurs.class);
+			configuration.addAnnotatedClass(metier.Users.class);
 			configuration.addAnnotatedClass(metier.Justificatif.class);
 			configuration.addAnnotatedClass(metier.Etudiant.class);
 			configuration.addAnnotatedClass(metier.Scolarite.class);

@@ -38,13 +38,13 @@ public class Justificatif {
 	@ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "CodeU")
 	
-    private Utilisateurs utilisateur;
+    private Users utilisateur;
 
 	
 	//Constructeurs
 	public Justificatif() {	}
 
-	public Justificatif (StatutJustificatif statut, String url,  Date dateDebut, Date dateFin, Utilisateurs utilisateur) {
+	public Justificatif (StatutJustificatif statut, String url,  Date dateDebut, Date dateFin, Users utilisateur) {
 		this.statut = statut;
 		this.url = url;
 		this.dateDebut = dateDebut;
@@ -53,11 +53,11 @@ public class Justificatif {
 	}
 	
 	//Getter & Setter
-	public Utilisateurs getUtilisateur() {
+	public Users getUtilisateur() {
 		return utilisateur;
 	}
 
-	public void setUtilisateur(Utilisateurs utilisateur) {
+	public void setUtilisateur(Users utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 
