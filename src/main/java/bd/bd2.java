@@ -5,9 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
+import dao.SeanceDonner;
+import metier.Cours;
 import metier.Seance;
+import metier.Users;
 
 public class bd2 {
 
@@ -109,6 +115,62 @@ public class bd2 {
 		} catch (SQLException ex) {
 		}
 		return nom+" "+prenom;
+
+	}
+	public static ArrayList<Seance> consulterSeance(String code) throws Exception {
+		/*----- Création éventuelle de la connexion à la base de données -----*/
+		if (bd2.cx == null) {
+			bd2.connection();
+		}
+	
+		/*----- Requête SQL -----*/
+		String sql = "SELECT * FROM Seance WHERE Seance.CodeU = ?";
+		ArrayList<Seance> seance = new ArrayList<>();
+		
+		/*----- Ouverture de l'espace de requête -----*/
+		try (PreparedStatement st = bd2.cx.prepareStatement(sql)) {
+			st.setString(1, code);
+			/*----- Exécution de la requête -----*/
+			try (ResultSet rs = st.executeQuery()) {
+				/*----- Lecture du contenu du ResultSet -----*/
+				while (rs.next()) {
+				Seance newseance=new Seance(rs.getString("SalleSeance"),rs.getDate("DateSeance"),rs.getInt("DureeSeance"),rs.getTime("HeureDebut"),rs.getString("StatutFicheAppel"),new Users(),new Cours());
+				newseance.setIdSeance(consulterSeanceID(code));
+				seance.add(newseance);
+				}
+			}
+		} catch (SQLException ex) {
+		}
+		return seance;
+	}
+	public static int consulterSeanceID(String code) throws Exception {
+		/*----- Création éventuelle de la connexion à la base de données -----*/
+		if (bd2.cx == null) {
+			bd2.connection();
+		}
+	
+		/*----- Requête SQL -----*/
+		String sql = "SELECT CodeSeance FROM Seance WHERE Seance.CodeU = ?";
+		
+		
+		/*----- Ouverture de l'espace de requête -----*/
+		try (PreparedStatement st = bd2.cx.prepareStatement(sql)) {
+			st.setString(1, code);
+			/*----- Exécution de la requête -----*/
+			try (ResultSet rs = st.executeQuery()) {
+				/*----- Lecture du contenu du ResultSet -----*/
+				rs.next();
+				return rs.getInt("CodeSeance");
+			}
+		} catch (SQLException ex) {
+		}
+		return 0;
+	}
+	public static void main(String[] args) throws Exception
+	{
+	for(Seance s:consulterSeance("1")) {
+		System.out.println(s);
+	}
 
 	}
 

@@ -64,7 +64,7 @@ public class centrale extends HttpServlet {
 					if(bd2.consulterType(CodeU).equals("Enseignant")) {
 						request.setAttribute("nom", bd2.consulterNom(CodeU));
 						request.setAttribute("id", CodeU);
-						request.getRequestDispatcher("ServlerAfficherPlanning").forward(request, response);
+						request.getRequestDispatcher("emploiDuTemps").forward(request, response);
 						}
 					}
 				}

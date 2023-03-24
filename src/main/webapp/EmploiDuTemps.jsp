@@ -35,14 +35,13 @@
 </head>
 <body>
 	<%
-
 	%>
 	<!-- menu -->
 	<div class="menu">
 		<ul>
 			<li><img src="img/logo-ut1.png" class="logo-ut1" /></li>
 			<div class="accueil">
-				<li><a href="webapp.EmploiDuTemps">Accueil</a>
+				<li><a href="webapp.EmploiDuTemps.jsp">Accueil</a>
 			</div>
 			</li>
 			<li class="cours"><a href="#">Mes cours</a>
@@ -93,7 +92,7 @@
 					<tr id="h1">
 						<td class="heure">8:00-9:30</td>
 						<%
-						String
+						
 						for (int i = 0; i < 7; i++) {
 							out.println("<td class=course id='d" + i + "'></td>");
 						}
@@ -180,4 +179,3 @@
 
 </body>
 </html>
-

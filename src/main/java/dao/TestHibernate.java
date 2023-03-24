@@ -28,7 +28,7 @@ public class TestHibernate
 	 */
 
 	/*----- Format de date -----*/
-	private static final SimpleDateFormat DF = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+	private static final SimpleDateFormat DF = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 	private static final SimpleDateFormat DFDATE = new SimpleDateFormat("dd/MM/yyyy");
 
 
@@ -118,9 +118,9 @@ public class TestHibernate
 		Users u2 =  session.get(Users.class, 2);
 		Cours c2 =  session.get(Cours.class, 2);
 		
-		Seance s1= new Seance("Me401",DFDATE.parse("04/01/2023"),90,DF.parse("04/04/1998 09:00:00"),"validé",u1,c1);
-		Seance s2= new Seance("Me401",DFDATE.parse("04/01/2023"),18,DF.parse("04/04/1998 14:00:00"),"validé",u1,c1);
-		Seance s3= new Seance("Me401",DFDATE.parse("05/01/2023"),90,DF.parse("04/04/1998 09:00:00"),"validé",u2,c2);
+		Seance s1= new Seance("Me401",DFDATE.parse("04/01/2023"),90,DF.parse("04/01/2023 09:00"),"validé",u1,c1);
+		Seance s2= new Seance("Me401",DFDATE.parse("04/01/2023"),180,DF.parse("04/01/2023 14:00"),"validé",u1,c1);
+		Seance s3= new Seance("Me401",DFDATE.parse("05/01/2023"),90,DF.parse("05/01/2023 09:00"),"validé",u2,c2);
 		
 		session.save(s1);
 		session.save(s2);
@@ -195,6 +195,7 @@ public class TestHibernate
     	query.setParameter("id", id);
         if (!query.getResultList().isEmpty()) {
             	seances=query.list();
+            	query.list().forEach(System.out::println);
             }
         return seances;
 
@@ -215,8 +216,19 @@ public class TestHibernate
 		TestHibernate.createSeance();
 		TestHibernate.createParticipe();
 		TestHibernate.createDeposerJus();
+	
+		//TestHibernate.loadSeancesDonner(1);
 		}
 
-
+	private static void affichage (List l)
+	{
+	System.out.println("-----");
+	l.forEach(e -> {
+		for (Object obj : (Object[])e)
+			System.out.print(obj + " ");
+		System.out.println();
+	});
+	System.out.println("-----");
+	}
 
 } /*----- Fin de la classe TestHibernate -----*/

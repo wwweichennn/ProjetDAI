@@ -1,5 +1,6 @@
 package dao;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,13 +11,14 @@ import org.hibernate.query.Query;
 import metier.Seance;
 
 public class SeanceDonner extends Util<Seance> {
-	public List<Seance> listAbsencesEtudiant(int id){
+	public static List<Seance> listSeanceDonner(int id){
     	List<Seance> seances = new ArrayList<>();
     	String hql = "from Seance s where s.CodeU = :id";
 
         try (Session session = getSession()) {
         	Transaction transaction=getTransaction(session);
-            Query<Seance>query = session.createQuery(hql);
+            @SuppressWarnings("unchecked")
+			Query<Seance>query = session.createQuery(hql);
             query.setParameter("id", id);
             if (!query.getResultList().isEmpty()) {
             	seances=query.list();
@@ -27,4 +29,6 @@ public class SeanceDonner extends Util<Seance> {
         }
         return seances;
     }
+
+	}
 }
