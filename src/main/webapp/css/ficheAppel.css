@@ -1,0 +1,104 @@
+@charset "UTF-8";
+body {
+  background-image: url("../img/back.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.element {
+  width: 80%;
+  position: relative;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.element::before {
+ content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; 
+  background-color: white; 
+  opacity: 0.8; 
+  filter: blur(5px);
+}
+
+/* Style de la titre */
+.titre{
+  margin-top: 5px;
+  font-family: 'Poppins', sans-serif;
+ text-align: center;
+}
+
+/* Style de la liste d'appel */
+.appel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Style de chaque élément de la liste d'appel */
+.appel-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 150px;
+}
+
+/* Style de l'image de l'étudiant */
+.appel-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.appel-item .imge{
+  border: 5px solid grey;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background-color: #f5f5f5;
+  transform: scale(1.1);
+}
+
+/* Style du nom de l'étudiant */
+.appel-item h3 {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Style de la présence/absence de l'étudiant */
+.appel-item .formation {
+  margin-top: 1px;
+  font-size: 15px;
+ font-weight: bold;
+}
+.appel-item .present {
+  margin-top: 5px;
+  font-size: 14px;
+  font-style: italic;
+}
+.btn{
+	display: block;
+	width: 30%;
+	height: 50px;
+	border-radius: 25px;
+	outline: none;
+	border: none;
+	background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+	background-size: 200%;
+	font-size: 1.2rem;
+	color: #fff;
+	font-family: 'Poppins', sans-serif;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: .5s;
+	align-items: center;
+	margin: 1rem auto;
+	
+}

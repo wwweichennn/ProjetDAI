@@ -1,0 +1,210 @@
+@charset "UTF-8";
+body{
+	background-color: #FFFFE7;
+}
+table{
+    color:whitesmoke;
+    text-align:center;
+    font-size:14px;
+    font-weight:bold;
+    margin-left:220px;
+    width:980px;
+    height:200px;
+    border-color: cornflowerblue;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: center;
+  }
+table td, table th{
+    border: 2px solid #d1d0bd;
+    color: #55232d;
+    width: 100px;
+    height: 50px;
+}
+table thead td{
+    background-color: #CCE8EB;
+    color: black;
+    width: 100px;
+    font-size: 15px;
+}
+.date{
+	font-size: 12px;
+}
+table tr:nth-child(odd){
+    background: #fff;
+}
+table tr:nth-child(even){
+    background: #F5FAFA;
+    }
+    
+  .heure{
+    background-color: #f3fae3;
+    color:black;
+  }
+  
+  .course{
+    background-color: #f5f3f4;
+  }
+  .head{
+    background-color: #859d95;
+  }
+  h1{
+  font: Times New Roman;
+  /*border-radius: 5px;
+  background: #e86214;
+  box-shadow:  -5px 5px 10px #ff4500, 15px -15px 15px #ff6000;*/
+  }
+ h2 {
+ 	color:#84676c; 
+ 	text-align:center;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+h3{
+	color:#b5999e; 
+	font: italic normal 20px Times New Roman;
+}
+
+.button1{
+  position: absolute;
+  bottom: -35px;
+  left: 200px;
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background-color: #3a86ff;
+  box-shadow: 0 3px 1px -2px #ccc, 0 2px 2px 0 #ccc, 0 1px 5px 0 #ccc;
+}
+.button1:hover{
+  background: #fff;
+  color: #4433ff
+}
+.button2{
+  position: absolute;
+  bottom: 10px;
+  margin-left: 800px;
+  min-width: 130px;
+  height: 40px;
+  color: #fff;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: none;
+  background-color: #ef233c;
+  box-shadow: 0 3px 1px -2px #ccc, 0 2px 2px 0 #ccc, 0 1px 5px 0 #ccc;
+}
+.button2:hover {
+  background: #fff;
+  color: #d90429;
+}
+/*.parent { 
+display: grid; 
+grid-template-columns: repeat(5, 1fr); 
+grid-template-rows: repeat(5, 1fr); 
+grid-column-gap: 4px;
+grid-row-gap: 0px; 
+}
+.div1 { grid-area: 1 / 1 / 2 / 6; } 
+.div2 { grid-area: 2 / 1 / 5 / 6; } 
+.div3 { grid-area: 5 / 2 / 6 / 3; } 
+.div4 { grid-area: 5 / 4 / 6 / 5; } */
+a{
+　　text-decoration:none;
+	color:#55232d;
+ }
+ 
+ /* menu*/
+.menu{  
+	height: 60px;
+    margin: auto;
+    border-radius: 10px;
+    background-color: #dc0713;
+    box-shadow: 1px 1px 33px #fff;
+}     
+.menu ul li     
+{     
+    width:160px; height:60px;     
+    list-style:none;/*去掉圆点*/     
+    float:left;/*水平显示*/     
+    color:white;/* #fff */     
+    font-size:18px;     
+    font-family:Frutiger;     
+    text-align:center;     
+    line-height:60px;/* 行高跟 高度一致时，竖直居中*/     
+    border-right:1px solid #f3fae3/*右边框*/     
+}
+   
+.menu ul li a     
+{     
+    color:white;/* #fff */         
+    font-family:Frutiger;     
+    text-decoration:none;     
+}     
+     
+.menu ul li.last:hover     
+{     
+    border-radius:0px 10px 10px 0px;/*右上 右下 圆弧显示 */     
+}     
+.menu ul li ul li      
+{     
+	
+    border: none;
+    border-top: 2px solid #dc7676bd;
+    background: rgb(237 57 57 / 92%);
+    border-radius: 10px;
+    float:right; 
+    width:160px; 
+    height:45px;  
+    line-height:45px;
+    font-size:18px;
+	 z-index:999;
+  
+}     
+.menu ul li ul     
+{     
+    display:none;/*不显示*/ 
+      
+     
+}          
+.menu ul li:hover ul     
+{     
+    display:block;     
+  
+} 
+.menu li:hover{
+    background-color: #ff8c76;
+    color: white;
+    font-size:19px;
+   
+}
+.compte{
+    float:right;
+}
+
+/*image*/
+.logo-ut1{
+	position:relative; 
+	height:60px;
+	left:-15px;
+	border-radius: 10px;   
+}
+

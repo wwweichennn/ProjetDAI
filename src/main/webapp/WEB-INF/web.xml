@@ -1,0 +1,131 @@
+
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+
+	<display-name>ProjetAppel</display-name>
+
+	<!--Faire matcher les servlets -->
+	<servlet>
+		<servlet-name>accueil</servlet-name>
+		<jsp-file>/Scolarite/AcceuilScolarite.jsp</jsp-file>
+	</servlet>
+
+<servlet>
+		<servlet-name>AcceuilEtudiant</servlet-name>
+		<jsp-file>/Etudiant/AcceuilEtudiant.jsp</jsp-file>
+	</servlet>
+
+	<servlet>
+		<servlet-name>verifJustif</servlet-name>
+		<jsp-file>/Scolarite/VerifJustificatif.jsp</jsp-file>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ModifProfil</servlet-name>
+		<jsp-file>/Etudiant/ModifProfil.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>ConsultAbs</servlet-name>
+		<jsp-file>/Etudiant/ConsultAbs.jsp</jsp-file>
+	</servlet>
+	<servlet>
+		<servlet-name>absparmois</servlet-name>
+		<jsp-file>/Etudiant/absparmois.jsp</jsp-file>
+	</servlet>
+
+	<!-- Donner un alias -->
+	<servlet-mapping>
+		<servlet-name>accueil</servlet-name>
+		<url-pattern>/Accueil</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AcceuilEtudiant</servlet-name>
+		<url-pattern>/AcceuilEtudiant</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>verifJustif</servlet-name>
+		<url-pattern>/Verification</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ConsultAbs</servlet-name>
+		<url-pattern>/ConsultAbs</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ModifProfil</servlet-name>
+		<url-pattern>/ModifProfil</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>absparmois</servlet-name>
+		<url-pattern>/absparmois</url-pattern>
+	</servlet-mapping>
+
+
+
+
+
+
+  <display-name>ProjetDAI</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+<servlet>
+    <servlet-name>index</servlet-name>
+    <jsp-file>/index.jsp</jsp-file>
+</servlet>
+
+<servlet>
+    <servlet-name>ficheAppel</servlet-name>
+    <jsp-file>/ficheAppel.jsp</jsp-file>
+</servlet>
+
+<servlet>
+    <servlet-name>emploiDuTemps</servlet-name>
+    <jsp-file>/EmploiDuTemps.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>index</servlet-name>
+    <url-pattern>/index</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>ficheAppel</servlet-name>
+    <url-pattern>/ficheAppel</url-pattern>
+</servlet-mapping>
+<servlet-mapping>
+    <servlet-name>emploiDuTemps</servlet-name>
+    <url-pattern>/emploiDuTemps</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>testPhoto</servlet-name>
+    <jsp-file>/testPhoto.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>testPhoto</servlet-name>
+    <url-pattern>/testPhoto</url-pattern>
+</servlet-mapping>
+
+<servlet>
+    <servlet-name>res</servlet-name>
+    <jsp-file>/res.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>res</servlet-name>
+    <url-pattern>/res</url-pattern>
+</servlet-mapping>
+
+
+
+
+
+
+  
+</web-app>
+
